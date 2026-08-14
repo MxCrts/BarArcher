@@ -31,7 +31,7 @@
 <link rel="preload" href="assets/fonts/montserrat-800-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" as="image" type="image/avif" fetchpriority="high"
       imagesrcset="assets/photos/hero-terrasse-halle-640.avif 640w, assets/photos/hero-terrasse-halle-960.avif 960w, assets/photos/hero-terrasse-halle-1360.avif 1360w"
-      imagesizes="100vw">
+      imagesizes="(min-width: 62em) calc(100vw - 2.75rem), 100vw">
 
 <!-- CSS critique du hero, inliné pour un premier rendu immédiat -->
 <style>
@@ -44,7 +44,7 @@ h1{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-sp
 .hero{position:relative;min-height:100dvh;display:grid;align-items:end;isolation:isolate;background:var(--encre);color:var(--creme);padding-top:max(1.5rem,env(safe-area-inset-top,0px));padding-bottom:calc(3.5rem + var(--barre-h));overflow:hidden}
 .hero__fond{position:absolute;inset:0;z-index:-2}
 .hero__fond img{width:100%;height:100%;object-fit:cover;object-position:50% 42%}
-.hero__voile{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgb(30 58 29/.62) 0%,rgb(30 58 29/.34) 34%,rgb(30 58 29/.86) 100%)}
+.hero__voile{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgb(30 58 29/.52) 0%,rgb(30 58 29/.44) 28%,rgb(30 58 29/.84) 52%,rgb(30 58 29/.94) 100%)}
 .hero__contenu{display:grid;justify-items:start;gap:1.15rem}
 .hero__logo{width:clamp(84px,21vw,128px);height:clamp(84px,21vw,128px);border-radius:50%;box-shadow:0 0 0 4px var(--creme)}
 .hero h1{font-size:clamp(2.35rem,1.1rem + 8.4vw,5.5rem)}
@@ -65,6 +65,13 @@ h1{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-sp
 <body>
 <a class="evitement" href="#contenu">Aller au contenu</a>
 
+<!-- Icônes réutilisées, dessinées à la main. Aucune bibliothèque, aucune requête. -->
+<svg class="sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
+<symbol id="i-etoile" viewBox="0 0 24 24" fill="currentColor"><path d="m12 3 2.6 5.6 6.1.8-4.5 4.2 1.2 6L12 16.7 6.6 19.6l1.2-6L3.3 9.4l6.1-.8Z"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+<symbol id="i-insta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></symbol>
+</defs></svg>
+
 <!-- Signature verticale du logo, reprise en bordure d'écran (desktop) -->
 <div class="bande" aria-hidden="true">Archers</div>
 
@@ -84,11 +91,11 @@ h1{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-sp
     </nav>
     <div class="entete__actions">
       <a class="bouton bouton--clair" href="https://www.google.com/maps/dir/?api=1&amp;destination=8%20place%20de%20la%20Halle%2C%2031310%20Rieux-Volvestre" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+        <svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>
         Itinéraire
       </a>
       <a class="bouton bouton--fantome" href="https://www.instagram.com/lebardesarchers/" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+        <svg class="ico" aria-hidden="true"><use href="#i-insta"/></svg>
         Instagram
       </a>
     </div>
@@ -101,8 +108,8 @@ h1{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-sp
   <section class="hero" id="hero">
     <div class="hero__fond">
       <picture>
-        <source type="image/avif" sizes="100vw" srcset="assets/photos/hero-terrasse-halle-640.avif 640w, assets/photos/hero-terrasse-halle-960.avif 960w, assets/photos/hero-terrasse-halle-1360.avif 1360w">
-        <source type="image/webp" sizes="100vw" srcset="assets/photos/hero-terrasse-halle-640.webp 640w, assets/photos/hero-terrasse-halle-960.webp 960w, assets/photos/hero-terrasse-halle-1360.webp 1360w">
+        <source type="image/avif" sizes="(min-width: 62em) calc(100vw - 2.75rem), 100vw" srcset="assets/photos/hero-terrasse-halle-640.avif 640w, assets/photos/hero-terrasse-halle-960.avif 960w, assets/photos/hero-terrasse-halle-1360.avif 1360w">
+        <source type="image/webp" sizes="(min-width: 62em) calc(100vw - 2.75rem), 100vw" srcset="assets/photos/hero-terrasse-halle-640.webp 640w, assets/photos/hero-terrasse-halle-960.webp 960w, assets/photos/hero-terrasse-halle-1360.webp 1360w">
         <img src="assets/photos/hero-terrasse-halle-1360.jpg" width="1360" height="1020" fetchpriority="high" decoding="async"
              alt="La terrasse du Bar des Archers installée sous la halle de Rieux-Volvestre, tables et chaises face à la façade en brique du bar, en fin d'après-midi.">
       </picture>
@@ -136,11 +143,11 @@ h1{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-sp
           <span><b>Aujourd'hui</b><span id="horaires-du-jour">Voir le tableau des horaires</span></span>
         </li>
         <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          <svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>
           <span><b>Où</b>8 place de la Halle, au centre du village</span>
         </li>
         <li>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 3 2.6 5.6 6.1.8-4.5 4.2 1.2 6L12 16.7 6.6 19.6l1.2-6L3.3 9.4l6.1-.8Z"/></svg>
+          <svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg>
           <span><b>Avis</b>4,7 sur 5 — 7 avis Google</span>
         </li>
       </ul>
@@ -205,7 +212,7 @@ h1{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-sp
           <p>Le bar publie le programme de chaque semaine sur Instagram. Le tableau ci-contre donne le rythme de l'été : c'est un repère, pas une garantie.</p>
           <p class="note">En cas de doute, c'est là que ça se passe.</p>
           <a class="bouton" href="https://www.instagram.com/lebardesarchers/" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+            <svg class="ico" aria-hidden="true"><use href="#i-insta"/></svg>
             Le programme de la semaine
           </a>
         </div>
@@ -349,7 +356,7 @@ h1{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-sp
           <p><strong>Le calendrier vit sur Instagram.</strong></p>
           <p>Le bar y publie l'affiche du mois et le programme de chaque semaine. C'est plus juste qu'un agenda figé sur un site : on préfère vous envoyer à la source plutôt que vous annoncer une date périmée.</p>
           <a class="bouton" href="https://www.instagram.com/lebardesarchers/" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+            <svg class="ico" aria-hidden="true"><use href="#i-insta"/></svg>
             Voir les prochaines dates
           </a>
         </div>
@@ -389,7 +396,7 @@ h1{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-sp
             <figcaption>
               <b>Benjamin</b>
               <span class="etoiles" role="img" aria-label="5 étoiles sur 5">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 3 2.6 5.6 6.1.8-4.5 4.2 1.2 6L12 16.7 6.6 19.6l1.2-6L3.3 9.4l6.1-.8Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 3 2.6 5.6 6.1.8-4.5 4.2 1.2 6L12 16.7 6.6 19.6l1.2-6L3.3 9.4l6.1-.8Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 3 2.6 5.6 6.1.8-4.5 4.2 1.2 6L12 16.7 6.6 19.6l1.2-6L3.3 9.4l6.1-.8Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 3 2.6 5.6 6.1.8-4.5 4.2 1.2 6L12 16.7 6.6 19.6l1.2-6L3.3 9.4l6.1-.8Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 3 2.6 5.6 6.1.8-4.5 4.2 1.2 6L12 16.7 6.6 19.6l1.2-6L3.3 9.4l6.1-.8Z"/></svg>
+                <svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg>
               </span>
               <span class="avis__source">avis Google</span>
             </figcaption>
@@ -401,7 +408,7 @@ h1{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-sp
             <figcaption>
               <b>Régis</b>
               <span class="etoiles" role="img" aria-label="5 étoiles sur 5">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 3 2.6 5.6 6.1.8-4.5 4.2 1.2 6L12 16.7 6.6 19.6l1.2-6L3.3 9.4l6.1-.8Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 3 2.6 5.6 6.1.8-4.5 4.2 1.2 6L12 16.7 6.6 19.6l1.2-6L3.3 9.4l6.1-.8Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 3 2.6 5.6 6.1.8-4.5 4.2 1.2 6L12 16.7 6.6 19.6l1.2-6L3.3 9.4l6.1-.8Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 3 2.6 5.6 6.1.8-4.5 4.2 1.2 6L12 16.7 6.6 19.6l1.2-6L3.3 9.4l6.1-.8Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 3 2.6 5.6 6.1.8-4.5 4.2 1.2 6L12 16.7 6.6 19.6l1.2-6L3.3 9.4l6.1-.8Z"/></svg>
+                <svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg>
               </span>
               <span class="avis__source">avis Google</span>
             </figcaption>
@@ -413,7 +420,7 @@ h1{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-sp
             <figcaption>
               <b>TheHell</b>
               <span class="etoiles" role="img" aria-label="5 étoiles sur 5">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 3 2.6 5.6 6.1.8-4.5 4.2 1.2 6L12 16.7 6.6 19.6l1.2-6L3.3 9.4l6.1-.8Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 3 2.6 5.6 6.1.8-4.5 4.2 1.2 6L12 16.7 6.6 19.6l1.2-6L3.3 9.4l6.1-.8Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 3 2.6 5.6 6.1.8-4.5 4.2 1.2 6L12 16.7 6.6 19.6l1.2-6L3.3 9.4l6.1-.8Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 3 2.6 5.6 6.1.8-4.5 4.2 1.2 6L12 16.7 6.6 19.6l1.2-6L3.3 9.4l6.1-.8Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 3 2.6 5.6 6.1.8-4.5 4.2 1.2 6L12 16.7 6.6 19.6l1.2-6L3.3 9.4l6.1-.8Z"/></svg>
+                <svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg>
               </span>
               <span class="avis__source">avis Google</span>
             </figcaption>
@@ -425,7 +432,7 @@ h1{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-sp
             <figcaption>
               <b>Marc</b>
               <span class="etoiles" role="img" aria-label="4 étoiles sur 5">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 3 2.6 5.6 6.1.8-4.5 4.2 1.2 6L12 16.7 6.6 19.6l1.2-6L3.3 9.4l6.1-.8Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 3 2.6 5.6 6.1.8-4.5 4.2 1.2 6L12 16.7 6.6 19.6l1.2-6L3.3 9.4l6.1-.8Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 3 2.6 5.6 6.1.8-4.5 4.2 1.2 6L12 16.7 6.6 19.6l1.2-6L3.3 9.4l6.1-.8Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 3 2.6 5.6 6.1.8-4.5 4.2 1.2 6L12 16.7 6.6 19.6l1.2-6L3.3 9.4l6.1-.8Z"/></svg>
+                <svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg>
               </span>
               <span class="avis__source">avis Google</span>
             </figcaption>
@@ -454,7 +461,7 @@ h1{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-sp
             </address>
           </div>
           <a class="bouton" href="https://www.google.com/maps/dir/?api=1&amp;destination=8%20place%20de%20la%20Halle%2C%2031310%20Rieux-Volvestre" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+            <svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>
             Lancer l'itinéraire
           </a>
           <div class="venir__bloc">
@@ -514,12 +521,9 @@ h1{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-sp
                 <text x="687" y="512" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="15" letter-spacing="1" fill="#2c522a" fill-opacity=".75">CATHÉDRALE</text>
                 <text x="687" y="532" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="15" letter-spacing="1" fill="#2c522a" fill-opacity=".75">SAINTE-MARIE</text>
               </g>
-              <!-- rose des vents -->
-              <g transform="translate(742 92)">
-                <circle r="26" fill="none" stroke="#2c522a" stroke-opacity=".45" stroke-width="3"/>
-                <path d="M0-17 6 4 0-1-6 4Z" fill="#2c522a"/>
-                <text x="0" y="-30" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="15" fill="#2c522a">N</text>
-              </g>
+              <!-- Une rose des vents figurait ici. Retirée : sur un plan explicitement
+                   « pas à l'échelle », une flèche nord affirme une orientation que
+                   personne n'a vérifiée. Décor en trop, et petit mensonge en prime. -->
             </svg>
           </a>
           <figcaption>Plan dessiné à la main, indicatif : il situe le bar sur la place, il n'est pas à l'échelle. Touchez-le pour ouvrir l'itinéraire.</figcaption>
@@ -571,11 +575,11 @@ h1{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-sp
 <!-- Barre d'actions permanente (mobile) -->
 <div class="actions" id="actions" data-cache role="group" aria-label="Actions rapides">
   <a class="bouton" href="https://www.google.com/maps/dir/?api=1&amp;destination=8%20place%20de%20la%20Halle%2C%2031310%20Rieux-Volvestre" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+    <svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>
     Itinéraire
   </a>
   <a class="bouton bouton--clair" href="https://www.instagram.com/lebardesarchers/" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+    <svg class="ico" aria-hidden="true"><use href="#i-insta"/></svg>
     Instagram
   </a>
 </div>

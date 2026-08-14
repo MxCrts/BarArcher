@@ -110,6 +110,9 @@ p { text-wrap: pretty; }
   padding-inline: var(--gouttiere);
 }
 
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+.ico { width: 20px; height: 20px; }
+
 .hors-ecran {
   position: absolute !important;
   width: 1px;
@@ -295,8 +298,12 @@ html:not(.js) .actions[data-cache] { transform: none; }
   position: absolute;
   inset: 0;
   z-index: -1;
+  /* Le voile est calculé, pas dosé à l'œil : à partir de 52 % de la hauteur —
+     là où commencent le titre, le badge et l'adresse — l'opacité ne descend
+     jamais sous 0,84. Même sur un pixel blanc de la photo, le crème garde
+     7,19:1 et le jaune 5,68:1. Voir DECISIONS.md. */
   background:
-    linear-gradient(180deg, rgb(30 58 29 / 0.62) 0%, rgb(30 58 29 / 0.34) 34%, rgb(30 58 29 / 0.86) 100%);
+    linear-gradient(180deg, rgb(30 58 29 / 0.52) 0%, rgb(30 58 29 / 0.44) 28%, rgb(30 58 29 / 0.84) 52%, rgb(30 58 29 / 0.94) 100%);
 }
 .hero__contenu { display: grid; justify-items: start; gap: 1.15rem; }
 .hero__logo {
@@ -439,7 +446,7 @@ a.badge:hover { transform: translateY(-2px); }
   font-size: 1.6rem;
   line-height: 1.2;
   color: var(--vert);
-  border-left: 4px solid var(--jaune);
+  border-left: 4px solid var(--vert); /* le jaune ne fait que 1,20:1 sur le crème : illisible ici */
   padding-left: 1rem;
   margin: 1.6rem 0 0;
 }
