@@ -1,0 +1,16 @@
+{
+  "_lisezmoi": "SOURCE UNIQUE DES HORAIRES. Modifier ce fichier suffit : le tableau de la page, le bandeau du jour et le badge Ouvert/Fermé s'y adaptent tout seuls. Procédure dans README.md. Ne pas renommer les clés.",
+  "fuseau": "Europe/Paris",
+  "saison": "Horaires d'été",
+  "note": "Le programme de la semaine est publié sur Instagram.",
+  "instagram": "https://www.instagram.com/lebardesarchers/",
+  "jours": [
+    { "iso": 1, "nom": "Lundi", "court": "Lun", "creneaux": [] },
+    { "iso": 2, "nom": "Mardi", "court": "Mar", "creneaux": [] },
+    { "iso": 3, "nom": "Mercredi", "court": "Mer", "creneaux": [{ "ouverture": "14:00", "fermeture": "21:00" }] },
+    { "iso": 4, "nom": "Jeudi", "court": "Jeu", "creneaux": [{ "ouverture": "14:00", "fermeture": "21:00" }] },
+    { "iso": 5, "nom": "Vendredi", "court": "Ven", "creneaux": [{ "ouverture": "16:00", "fermeture": "00:00" }] },
+    { "iso": 6, "nom": "Samedi", "court": "Sam", "creneaux": [{ "ouverture": "16:00", "fermeture": "00:00" }] },
+    { "iso": 7, "nom": "Dimanche", "court": "Dim", "creneaux": [{ "ouverture": "09:00", "fermeture": "14:00" }] }
+  ]
+}

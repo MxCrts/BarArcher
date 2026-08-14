@@ -1,0 +1,19 @@
+{
+  "name": "Le Bar des Archers — Rieux-Volvestre",
+  "short_name": "Les Archers",
+  "description": "Bar de village, 8 place de la Halle à Rieux-Volvestre. Horaires, photos, itinéraire.",
+  "lang": "fr",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#2C522A",
+  "background_color": "#F4F2E8",
+  "categories": ["food", "lifestyle"],
+  "icons": [
+    { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
