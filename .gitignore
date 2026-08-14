@@ -1,0 +1,17 @@
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Editeurs
+.vscode/
+.idea/
+*.swp
+
+# Node (outils de build ponctuels uniquement)
+node_modules/
+npm-debug.log*
+
+# Temporaires
+*.tmp
+*.bak
