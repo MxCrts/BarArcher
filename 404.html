@@ -7,25 +7,74 @@
 <meta name="description" content="Cette page n'existe pas sur le site du Bar des Archers, à Rieux-Volvestre.">
 <meta name="robots" content="noindex, follow">
 <meta name="theme-color" content="#2C522A">
-<link rel="icon" href="/assets/icons/icon-32.png" sizes="32x32" type="image/png">
-<link rel="apple-touch-icon" href="/assets/icons/icon-180.png">
-<link rel="stylesheet" href="/assets/css/style.css">
+<!-- Cette page est volontairement autonome : aucune feuille de style, aucune police
+     et aucune image externes. Un 404 peut être servi depuis n'importe quelle
+     profondeur d'URL (et depuis un sous-dossier, comme sur GitHub Pages) : tout
+     chemin relatif ou absolu y serait faux une fois sur deux. -->
+<style>
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;min-height:100dvh;display:grid;align-content:center;
+  background:#2c522a;color:#fff9d7;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:clamp(1rem,.96rem + .2vw,1.0625rem);line-height:1.65;
+  padding:clamp(2.5rem,2rem + 4vw,5rem) clamp(1.15rem,.6rem + 2.6vw,2.5rem)}
+.bloc{width:100%;max-width:38rem;margin-inline:auto;display:grid;justify-items:start;gap:1.15rem}
+svg{display:block}
+h1{margin:0;font-weight:800;text-transform:uppercase;letter-spacing:-.03em;line-height:1.02;
+  font-size:clamp(2.2rem,1.4rem + 5vw,4rem)}
+p{margin:0;max-width:42ch;text-wrap:pretty}
+.accent{color:#ffdc59;font-size:1.25rem;font-weight:700}
+.liens{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.6rem}
+a.bouton{display:inline-flex;align-items:center;min-height:48px;padding:.7rem 1.15rem;
+  border:2px solid #1e3a1d;border-radius:999px;background:#ffdc59;color:#1e3a1d;
+  font-weight:700;font-size:.82rem;letter-spacing:.02em;text-transform:uppercase;
+  text-decoration:none;transition:transform .15s ease}
+a.bouton--fantome{background:transparent;border-color:#fff9d7;color:#fff9d7}
+a.bouton:hover{transform:translateY(-2px)}
+a:focus-visible,.bouton:focus-visible{outline:3px solid #ffdc59;outline-offset:3px;border-radius:6px}
+.evin{margin-top:1.5rem;border:1px solid #ffdc59;border-radius:8px;padding:.7rem .9rem;
+  color:#ffdc59;font-size:.88rem}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.001ms!important}}
+</style>
 </head>
 <body>
-<main class="erreur">
-  <div class="enveloppe" style="display:grid;gap:1.2rem;justify-items:start">
-    <img src="/assets/photos/logo-rond-360.png" width="360" height="360" decoding="async"
-         alt="Logo du Bar des Archers : un arc et une flèche jaunes sur un rond vert.">
-    <p class="accent">Flèche à côté de la cible.</p>
-    <h1>Page introuvable</h1>
-    <p>Cette page n'existe pas, ou elle a changé d'adresse. Le bar, lui, n'a pas bougé :
-    il est toujours au 8, place de la Halle.</p>
-    <div style="display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.6rem">
-      <a class="bouton" href="/">Retour à l'accueil</a>
-      <a class="bouton bouton--fantome" href="/#horaires">Voir les horaires</a>
-    </div>
-    <p class="evin" style="margin-top:1.5rem">L'abus d'alcool est dangereux pour la santé, à consommer avec modération.</p>
+<main class="bloc">
+  <!-- Le logo du bar, redessiné en vecteur pour qu'il n'y ait aucun fichier à charger. -->
+  <svg width="96" height="96" viewBox="0 0 96 96" role="img" aria-label="Logo du Bar des Archers">
+    <circle cx="48" cy="48" r="46" fill="#fff9d7"/>
+    <circle cx="48" cy="48" r="43" fill="#2c522a"/>
+    <g fill="none" stroke="#ffdc59" stroke-width="3.4" stroke-linecap="round">
+      <path d="M30 70C30 46 46 30 70 30"/>
+      <path d="M30 26c22 4 36 18 40 40" stroke-width="2.6"/>
+      <path d="M26 70 70 26"/>
+    </g>
+    <path d="M70 26l-2 10 10-2z" fill="#ffdc59"/>
+    <path d="M26 70l10-2-2-8z" fill="#ffdc59"/>
+  </svg>
+
+  <p class="accent">Flèche à côté de la cible.</p>
+  <h1>Page introuvable</h1>
+  <p>Cette page n'existe pas, ou elle a changé d'adresse. Le bar, lui, n'a pas bougé :
+  il est toujours au 8, place de la Halle, à Rieux-Volvestre.</p>
+
+  <div class="liens">
+    <a class="bouton" id="accueil" href="/">Retour à l'accueil</a>
+    <a class="bouton bouton--fantome" href="https://www.instagram.com/lebardesarchers/" target="_blank" rel="noopener">Instagram</a>
   </div>
+
+  <p class="evin">L'abus d'alcool est dangereux pour la santé, à consommer avec modération.</p>
 </main>
+
+<script>
+/* « / » est la bonne cible une fois le site sur son propre domaine.
+   Sur GitHub Pages, le site vit dans un sous-dossier (/BarArcher/) : on rattrape
+   le coup ici. Sans JavaScript, le lien mène à la racine du domaine — dégradation
+   acceptable, et sans objet le jour où le vrai domaine est branché. */
+(function () {
+  if (!/\.github\.io$/.test(location.hostname)) return;
+  var base = location.pathname.split("/")[1];
+  if (base) document.getElementById("accueil").setAttribute("href", "/" + base + "/");
+})();
+</script>
 </body>
 </html>
