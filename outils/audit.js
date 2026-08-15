@@ -60,7 +60,13 @@ if (/\b100vw\b/.test(index.replace(/(?:image)?sizes="[^"]*"/g, ''))) ko('100vw h
 if (/overflow-x:\s*hidden/.test(css)) ko('overflow-x:hidden trouvé (pansement)');
 const largeursFixes = [...css.matchAll(/(?:^|[;{]|\s)(?:min-)?width:\s*(\d{3,})px/g)].map(m => +m[1]).filter(v => v > 320);
 if (largeursFixes.length) ko('largeur fixe > 320px : ' + largeursFixes.join(', '));
-if (/white-space:\s*nowrap/.test(css.replace(/\.hors-ecran[\s\S]*?\}/, ''))) ko('white-space:nowrap hors classe utilitaire');
+/* nowrap n'est toléré que sur des jetons courts qui ne doivent pas se couper
+   (la classe d'évitement visuel, et le prix d'une ligne de carte). */
+const nowrapTolere = ['.hors-ecran', '.carte__prix'];
+for (const m of css.matchAll(/([^{}]+)\{[^}]*white-space:\s*nowrap[^}]*\}/g)) {
+  const sel = m[1].trim().split('\n').pop().trim();
+  if (!nowrapTolere.some(t => sel.includes(t))) ko('white-space:nowrap sur un sélecteur non prévu : ' + sel);
+}
 
 /* ---- 5. aucune requête tierce au runtime ---- */
 const runtime = index + fs.readFileSync(R + 'assets/js/app.js', 'utf8') + css;

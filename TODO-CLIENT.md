@@ -67,12 +67,20 @@ Le champ `priceRange` du JSON-LD est volontairement absent : je n'invente pas de
 Une indication du type « moins de 10 € » ou « 10–20 € » permettrait de le renseigner,
 et Google l'affiche dans les résultats.
 
-### 8. L'ardoise
-Les quatre catégories sont volontairement génériques et sans prix ni marques.
-Chaque bloc contient un commentaire `<!-- PRIX: à remplir -->` prêt à recevoir des
-tarifs. Y a-t-il des choses à mettre en avant que le site tait aujourd'hui — bières
-locales, planches, restauration sur place ? *(L'affiche du mois d'août mentionne
-« restauration sur place » : à confirmer, car ce n'est écrit nulle part sur le site.)*
+### 8. Les prix de la carte — le manque le plus visible
+**C'est le point qui rapporterait le plus, et de loin.** 86 % des gens consultent la
+carte d'un bar avant de venir ; la nôtre annonce six catégories sans un seul chiffre.
+Six prix indicatifs suffisent (demi pression, pinte, verre de vin, apéritif, café, soft).
+Chaque ligne a déjà son emplacement vide dans `index.html` : le remplir prend dix
+minutes, la mise en page suit toute seule (procédure dans `README.md`).
+
+En attendant, le site affiche « les prix sont sur l'ardoise, au bar » — c'est vrai,
+mais ça fait rebrousser chemin à une partie des visiteurs.
+
+Deux questions au passage : y a-t-il des bières locales à mettre en avant ?
+Et l'affiche du mois d'août mentionne **« restauration sur place »** — c'est un
+argument fort, et il n'apparaît nulle part sur le site faute de savoir ce que ça
+recouvre (planches, tapas, plats ?).
 
 ### 9. Les concerts
 Volontairement, aucune date n'est codée en dur : elles seraient périmées en quelques

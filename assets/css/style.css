@@ -1,16 +1,14 @@
 @charset "utf-8";
 /* ==========================================================================
    Le Bar des Archers — Rieux-Volvestre
-   Charte relevée sur le logo et les affiches du bar :
-     vert   #2C522A  (fond du logo)
-     jaune  #FFDC59  (arc et lettrage du logo)
-     crème  #FFF9D7  (papier des affiches)
-   + 2 valeurs dérivées : --encre (texte) et --papier (fond de page).
-   Contrastes vérifiés dans DECISIONS.md — le jaune sur crème est décoratif,
-   jamais porteur d'information.
+   Charte relevée sur le logo et les affiches : #2C522A vert, #FFDC59 jaune,
+   #FFF9D7 crème. Deux valeurs dérivées seulement (--encre, --papier).
+   Contrastes calculés dans DECISIONS.md : le jaune ne porte jamais de texte
+   sur fond clair.
+   Parti pris de mise en page : peu de traits, beaucoup d'air, six blocs.
    ========================================================================== */
 
-/* ---------- 1. Polices auto-hébergées ---------- */
+/* ---------- 1. Polices ---------- */
 @font-face {
   font-family: "Montserrat";
   src: url("../fonts/montserrat-800-latin.woff2") format("woff2");
@@ -25,7 +23,7 @@
   font-weight: 700;
   font-style: normal;
   font-display: swap;
-  size-adjust: 118%; /* Caveat a une petite hauteur d'x : on la remonte */
+  size-adjust: 118%;
 }
 
 /* ---------- 2. Jetons ---------- */
@@ -35,24 +33,22 @@
   --jaune: #ffdc59;
   --creme: #fff9d7;
   --papier: #f4f2e8;
+  --trait: rgb(44 82 42 / 0.16);
 
   --display: "Montserrat", "Segoe UI", system-ui, sans-serif;
   --accent: "Caveat", "Segoe UI", system-ui, sans-serif;
   --texte: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
-  --pas: clamp(1rem, 0.6rem + 2vw, 1.75rem);
-  --gouttiere: clamp(1.15rem, 0.6rem + 2.6vw, 2.5rem);
-  --large: 68rem;
-  --arche: 999px 999px 10px 10px / 42% 42% 10px 10px;
-  --bande-l: 0px; /* largeur de la bande ARCHERS, activée en desktop */
-  --barre-h: 0px; /* hauteur de la barre d'actions mobile */
-  --trait: 2px solid var(--vert);
+  --gouttiere: clamp(1.15rem, 0.55rem + 2.8vw, 2.5rem);
+  --large: 70rem;
+  --bloc: clamp(3rem, 2.2rem + 3.2vw, 4.75rem);
+  --arche: 999px 999px 12px 12px / 34% 34% 12px 12px;
+  --bande-l: 0px;
+  --barre-h: 0px;
 }
 
 /* ---------- 3. Base ---------- */
-*,
-*::before,
-*::after { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: border-box; }
 
 html {
   -webkit-text-size-adjust: 100%;
@@ -66,25 +62,21 @@ body {
   background: var(--papier);
   color: var(--encre);
   font-family: var(--texte);
-  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
-  line-height: 1.65;
+  font-size: clamp(1rem, 0.95rem + 0.24vw, 1.0938rem);
+  line-height: 1.6;
   overflow-wrap: break-word;
 }
 
-img,
-svg,
-picture { display: block; max-width: 100%; }
-
+img, svg, picture { display: block; max-width: 100%; }
 img { height: auto; }
-
 a { color: inherit; }
 
 h1, h2, h3 {
   font-family: var(--display);
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: -0.02em;
-  line-height: 1.02;
+  letter-spacing: -0.025em;
+  line-height: 1.03;
   margin: 0;
   text-wrap: balance;
 }
@@ -96,10 +88,7 @@ p { text-wrap: pretty; }
   outline-offset: 3px;
   border-radius: 4px;
 }
-.sur-vert :focus-visible,
-.hero :focus-visible,
-.pied :focus-visible { outline-color: var(--jaune); }
-
+.sur-vert :focus-visible, .hero :focus-visible, .pied :focus-visible { outline-color: var(--jaune); }
 ::selection { background: var(--jaune); color: var(--encre); }
 
 /* ---------- 4. Utilitaires ---------- */
@@ -115,22 +104,15 @@ p { text-wrap: pretty; }
 
 .hors-ecran {
   position: absolute !important;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
-  border: 0;
+  width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
 }
 
 .evitement {
   position: fixed;
-  top: 0.5rem;
-  left: 0.5rem;
+  top: 0.5rem; left: 0.5rem;
   z-index: 100;
-  transform: translateY(-160%);
+  transform: translateY(-170%);
   background: var(--vert);
   color: var(--creme);
   padding: 0.7rem 1.1rem;
@@ -140,39 +122,26 @@ p { text-wrap: pretty; }
 }
 .evitement:focus { transform: none; }
 
-/* ---------- 5. Bande verticale « ARCHERS » (desktop) ---------- */
+/* ---------- 5. Bande verticale ARCHERS ---------- */
 .bande {
   display: none;
   position: fixed;
   inset: 0 0 0 auto;
-  width: 2.75rem;
+  width: 2.5rem;
   background: var(--vert);
   color: var(--jaune);
   z-index: 40;
   align-items: center;
   justify-content: center;
   font-family: var(--display);
-  font-size: 0.82rem;
-  letter-spacing: 0.42em;
+  font-size: 0.78rem;
+  letter-spacing: 0.4em;
   text-transform: uppercase;
   writing-mode: vertical-rl;
   user-select: none;
 }
-.bande::before,
-.bande::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  translate: -50% 0;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--jaune);
-}
-.bande::before { top: 1.6rem; }
-.bande::after { bottom: 1.6rem; }
 
-/* ---------- 6. En-tête (desktop) ---------- */
+/* ---------- 6. En-tête ---------- */
 .entete {
   display: none;
   position: sticky;
@@ -180,636 +149,412 @@ p { text-wrap: pretty; }
   z-index: 30;
   background: var(--vert);
   color: var(--creme);
-  border-bottom: 3px solid var(--encre);
 }
-.entete__interieur {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  min-height: 4rem;
-}
+.entete__interieur { display: flex; align-items: center; gap: 1.5rem; min-height: 3.75rem; }
 .entete__marque {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
+  display: flex; align-items: center; gap: 0.6rem;
   text-decoration: none;
-  font-family: var(--display);
-  font-size: 0.9rem;
-  letter-spacing: -0.01em;
-  line-height: 1.05;
-  text-transform: uppercase;
-  flex: 0 0 auto;
+  font-family: var(--display); font-size: 0.85rem; line-height: 1.05;
+  text-transform: uppercase; flex: 0 0 auto;
 }
-.entete__marque img { width: 38px; height: 38px; border-radius: 50%; }
-.entete__nav {
-  display: flex;
-  gap: 1.35rem;
-  margin-inline-start: auto;
-  font-size: 0.9rem;
-}
-.entete__nav a {
-  text-decoration: none;
-  padding: 0.35rem 0;
-  border-bottom: 2px solid transparent;
-}
-.entete__nav a:hover,
-.entete__nav a:focus-visible { border-bottom-color: var(--jaune); }
-.entete__actions { display: flex; gap: 0.6rem; flex: 0 0 auto; }
+.entete__marque img { width: 34px; height: 34px; border-radius: 50%; }
+.entete__nav { display: flex; gap: 1.4rem; margin-inline-start: auto; font-size: 0.88rem; }
+.entete__nav a { text-decoration: none; padding: 0.3rem 0; border-bottom: 2px solid transparent; }
+.entete__nav a:hover, .entete__nav a:focus-visible { border-bottom-color: var(--jaune); }
+.entete__actions { display: flex; gap: 0.5rem; flex: 0 0 auto; }
 
 /* ---------- 7. Boutons ---------- */
 .bouton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.55rem;
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;
   min-height: 48px;
-  padding: 0.7rem 1.15rem;
-  border: 2px solid var(--encre);
+  padding: 0.7rem 1.2rem;
+  border: 2px solid transparent;
   border-radius: 999px;
   background: var(--jaune);
   color: var(--encre);
   font-family: var(--display);
-  font-size: 0.82rem;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  text-decoration: none;
-  cursor: pointer;
+  font-size: 0.8rem; letter-spacing: 0.02em; text-transform: uppercase;
+  text-decoration: none; cursor: pointer;
   transition: transform 0.15s ease, background-color 0.15s ease;
 }
-.bouton:hover,
-.bouton:active { transform: translateY(-2px); }
-.bouton--clair {
-  background: var(--creme);
-  border-color: var(--creme);
-}
-.bouton--clair:hover { background: var(--jaune); border-color: var(--jaune); }
-.bouton--fantome {
-  background: transparent;
-  border-color: currentColor;
-  color: inherit;
-}
-.bouton--fantome:hover { background: rgb(255 249 215 / 0.15); }
-.bouton svg { width: 20px; height: 20px; flex: 0 0 auto; }
+.bouton:hover, .bouton:active { transform: translateY(-2px); }
+.bouton--clair { background: var(--creme); }
+.bouton--clair:hover { background: var(--jaune); }
+.bouton--fantome { background: transparent; border-color: currentColor; color: inherit; }
+.bouton--fantome:hover { background: rgb(255 249 215 / 0.14); }
+.bouton .ico { flex: 0 0 auto; }
 
 /* ---------- 8. Barre d'actions mobile ---------- */
 .actions {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 35;
-  display: flex;
-  gap: 0.6rem;
-  padding: 0.6rem var(--gouttiere) calc(0.6rem + env(safe-area-inset-bottom, 0px));
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 35;
+  display: flex; gap: 0.55rem;
+  padding: 0.55rem var(--gouttiere) calc(0.55rem + env(safe-area-inset-bottom, 0px));
   background: var(--vert);
-  border-top: 3px solid var(--encre);
   transition: transform 0.25s ease;
 }
-.actions[data-cache] { transform: translateY(115%); }
-/* sans JavaScript, la barre ne se cache jamais */
+.actions[data-cache] { transform: translateY(120%); }
 html:not(.js) .actions[data-cache] { transform: none; }
 .actions .bouton { flex: 1 1 0; padding-inline: 0.6rem; }
 
-/* ---------- 9. Hero ---------- */
+/* ==========================================================================
+   9. HERO — 82dvh : on voit dépasser le bloc suivant, le site s'annonce court
+   ========================================================================== */
 .hero {
   position: relative;
-  min-height: 100dvh;
-  display: grid;
-  align-items: end;
+  min-height: 82dvh;
+  display: grid; align-items: end;
   isolation: isolate;
   background: var(--encre);
   color: var(--creme);
-  padding-top: max(1.5rem, env(safe-area-inset-top, 0px));
-  padding-bottom: calc(3.5rem + var(--barre-h));
+  padding-top: max(2rem, env(safe-area-inset-top, 0px));
+  padding-bottom: calc(3rem + var(--barre-h));
   overflow: hidden;
 }
-.hero__fond {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-}
-.hero__fond img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% 42%;
-}
+.hero__fond { position: absolute; inset: 0; z-index: -2; }
+.hero__fond img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
 .hero__voile {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  /* Le voile est calculé, pas dosé à l'œil : à partir de 52 % de la hauteur —
-     là où commencent le titre, le badge et l'adresse — l'opacité ne descend
-     jamais sous 0,84. Même sur un pixel blanc de la photo, le crème garde
-     7,19:1 et le jaune 5,68:1. Voir DECISIONS.md. */
-  background:
-    linear-gradient(180deg, rgb(30 58 29 / 0.52) 0%, rgb(30 58 29 / 0.44) 28%, rgb(30 58 29 / 0.84) 52%, rgb(30 58 29 / 0.94) 100%);
+  position: absolute; inset: 0; z-index: -1;
+  /* Voile calculé : à partir de 50 % de la hauteur — là où commence le texte —
+     l'opacité ne descend jamais sous 0,84. Même sur un pixel blanc de la photo,
+     le crème garde 7,14:1 et le jaune 5,64:1. Voir outils/contrastes.js. */
+  background: linear-gradient(180deg,
+    rgb(30 58 29 / 0.5) 0%, rgb(30 58 29 / 0.42) 26%,
+    rgb(30 58 29 / 0.84) 50%, rgb(30 58 29 / 0.94) 100%);
 }
-.hero__contenu { display: grid; justify-items: start; gap: 1.15rem; }
+.hero__contenu { display: grid; justify-items: start; gap: 1rem; }
 .hero__logo {
-  width: clamp(84px, 21vw, 128px);
-  height: clamp(84px, 21vw, 128px);
+  width: clamp(76px, 17vw, 104px); height: clamp(76px, 17vw, 104px);
   border-radius: 50%;
-  box-shadow: 0 0 0 4px var(--creme);
 }
 .hero h1 {
-  font-size: clamp(2.35rem, 1.1rem + 8.4vw, 5.5rem);
-  letter-spacing: -0.035em;
+  font-size: clamp(2.4rem, 1rem + 9.2vw, 5.75rem);
+  letter-spacing: -0.04em;
 }
 .hero h1 .lig { display: block; }
 .hero h1 .lig--jaune { color: var(--jaune); }
 .hero__signature {
   font-family: var(--accent);
-  font-size: clamp(1.45rem, 1.1rem + 2vw, 2.1rem);
-  line-height: 1.15;
-  color: var(--jaune);
-  margin: -0.35rem 0 0;
+  font-size: clamp(1.4rem, 1.05rem + 1.9vw, 2rem);
+  line-height: 1.15; color: var(--jaune);
+  margin: -0.4rem 0 0.15rem;
 }
-.hero__lieu {
-  margin: 0;
-  font-family: var(--display);
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-.hero__arcade {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -1px;
-  height: 34px;
-  z-index: 1;
-  /* arcade de la halle, motif répété — dessiné en CSS, aucune requête réseau */
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='72' height='34' viewBox='0 0 72 34'><path d='M0 34V17a18 18 0 0 1 36 0 18 18 0 0 1 36 0v17Z' fill='%232c522a'/></svg>");
-  background-repeat: repeat-x;
-  background-position: bottom center;
-  background-size: 72px 34px;
-}
+.hero__actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.35rem; }
 
 /* ---------- 10. Badge Ouvert / Fermé ---------- */
 .badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  padding: 0.62rem 1.15rem 0.62rem 0.95rem;
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.6rem 1.15rem 0.6rem 0.95rem;
   border-radius: 999px;
-  background: var(--creme);
-  color: var(--encre);
-  border: 2px solid var(--encre);
-  font-size: 0.98rem;
-  line-height: 1.25;
-  max-width: 100%;
+  background: var(--creme); color: var(--encre);
+  font-size: 0.98rem; line-height: 1.25;
+  max-width: 100%; text-decoration: none;
+  transition: transform 0.15s ease;
 }
-a.badge { text-decoration: none; transition: transform 0.15s ease; }
-a.badge:hover { transform: translateY(-2px); }
+.badge:hover { transform: translateY(-2px); }
 .badge__point {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--encre);
-  flex: 0 0 auto;
-  position: relative;
+  width: 11px; height: 11px; border-radius: 50%;
+  background: var(--encre); flex: 0 0 auto; position: relative;
 }
 .badge[data-etat="ouvert"] { background: var(--jaune); }
 .badge[data-etat="ouvert"] .badge__point { background: var(--vert); }
 .badge[data-etat="ouvert"] .badge__point::after {
-  content: "";
-  position: absolute;
-  inset: -5px;
-  border-radius: 50%;
-  border: 2px solid var(--vert);
+  content: ""; position: absolute; inset: -5px;
+  border-radius: 50%; border: 2px solid var(--vert);
   animation: pouls 2.4s ease-out infinite;
 }
-.badge[data-etat="ferme"] { background: var(--creme); }
-.badge__etat { font-family: var(--display); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.03em; }
+.badge__etat { font-family: var(--display); text-transform: uppercase; font-size: 0.78rem; letter-spacing: 0.03em; }
 .badge__detail { font-family: var(--accent); font-size: 1.15rem; }
 .badge__detail::before { content: "· "; }
-
 @keyframes pouls {
   0% { opacity: 0.9; transform: scale(0.85); }
   70%, 100% { opacity: 0; transform: scale(1.7); }
 }
 
-/* ---------- 11. Bandeau infos ---------- */
-.bandeau {
-  background: var(--vert);
-  color: var(--creme);
-  padding-block: clamp(1.4rem, 1rem + 1.6vw, 2.1rem);
-}
-.bandeau__liste {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 0.9rem;
-}
-.bandeau__liste li {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.7rem;
-  font-size: 0.98rem;
-}
-.bandeau__liste svg { width: 22px; height: 22px; flex: 0 0 auto; color: var(--jaune); margin-top: 0.15rem; }
-.bandeau b { font-family: var(--display); font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; display: block; color: var(--jaune); }
-
-/* ---------- 12. Sections ---------- */
-.section { padding-block: clamp(3rem, 2rem + 5vw, 5.5rem); }
-.section--creme { background: var(--creme); }
-.section--vert { background: var(--vert); color: var(--creme); }
-
-.oeil {
-  font-family: var(--accent);
-  font-size: 1.5rem;
-  line-height: 1;
-  color: var(--vert);
-  margin: 0 0 0.3rem;
-  display: block;
-}
-.section--vert .oeil { color: var(--jaune); }
+/* ==========================================================================
+   11. Blocs
+   ========================================================================== */
+.bloc { padding-block: var(--bloc); }
+.bloc--creme { background: var(--creme); }
+.bloc--vert { background: var(--vert); color: var(--creme); }
 
 .titre {
-  font-size: clamp(1.85rem, 1.1rem + 3.4vw, 3.1rem);
+  font-size: clamp(1.6rem, 1.15rem + 2.1vw, 2.5rem);
   color: var(--vert);
-  margin-bottom: clamp(1.4rem, 1rem + 1.6vw, 2.2rem);
+  margin-bottom: clamp(1.5rem, 1.1rem + 1.6vw, 2.25rem);
 }
-.section--vert .titre { color: var(--creme); }
+.bloc--vert .titre { color: var(--creme); }
 
-.tete { max-width: 34ch; }
-.plomb { font-size: 1.1rem; }
+.surtitre {
+  font-family: var(--display);
+  font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--vert); opacity: 0.85; /* 0,72 tombait à 3,94:1 — sous AA */
+  margin: 0 0 0.5rem;
+}
+.bloc--vert .surtitre { color: var(--jaune); opacity: 1; }
 
-/* ---------- 13. L'histoire ---------- */
-.histoire { display: grid; gap: clamp(1.6rem, 1rem + 3vw, 3rem); }
-.histoire__texte p { margin: 0 0 1rem; }
-.histoire__texte p:last-child { margin-bottom: 0; }
-.histoire__aparte {
-  font-family: var(--accent);
-  font-size: 1.6rem;
-  line-height: 1.2;
+/* ==========================================================================
+   12. L'ARDOISE — la carte, premier bloc : c'est ce qu'on vient chercher
+   ========================================================================== */
+/* Filets : un trait en haut du bloc, puis un sous chaque ligne. Sur deux
+   colonnes, les traits d'une même rangée se rejoignent — pas d'escalier. */
+.carte { display: grid; gap: 0; border-top: 1px solid var(--trait); }
+.carte__ligne {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  gap: 0.4rem 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--trait);
+}
+.carte__nom {
+  font-family: var(--display);
+  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.2rem);
+  text-transform: uppercase; letter-spacing: -0.01em;
   color: var(--vert);
-  border-left: 4px solid var(--vert); /* le jaune ne fait que 1,20:1 sur le crème : illisible ici */
-  padding-left: 1rem;
-  margin: 1.6rem 0 0;
+  margin: 0;
 }
-.histoire__photo { margin: 0; }
-.histoire__photo img {
-  width: 100%;
-  border-radius: var(--arche);
-  border: var(--trait);
-}
-.histoire__photo figcaption {
-  font-family: var(--accent);
-  font-size: 1.15rem;
-  color: var(--vert);
-  margin-top: 0.6rem;
-}
-
-/* ---------- 14. Horaires ---------- */
-.horaires__grille { display: grid; gap: clamp(1.5rem, 1rem + 2.4vw, 2.75rem); }
-
-.tableau {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  background: var(--papier);
-  border: 3px solid var(--vert);
-  border-radius: 12px;
-  overflow: hidden;
-}
-.section--creme .tableau { background: var(--creme); }
-.tableau caption {
-  caption-side: top;
-  text-align: left;
-  font-family: var(--accent);
-  font-size: 1.25rem;
-  color: var(--vert);
-  padding-bottom: 0.5rem;
-}
-.tableau th,
-.tableau td { padding: 0.72rem 0.9rem; text-align: left; border-top: 1px solid rgb(44 82 42 / 0.22); }
-.tableau tr:first-child th,
-.tableau tr:first-child td { border-top: 0; }
-.tableau th {
-  font-family: var(--accent);
-  font-weight: 700;
-  font-size: 1.35rem;
-  line-height: 1.1;
-  color: var(--vert);
-  width: 45%;
-}
-.tableau td { font-family: var(--display); font-size: 0.9rem; letter-spacing: -0.01em; }
-.tableau .ferme { font-family: var(--accent); font-size: 1.2rem; letter-spacing: 0; opacity: 0.75; }
-.tableau tr[data-aujourdhui] { background: var(--jaune); }
-.tableau tr[data-aujourdhui] th,
-.tableau tr[data-aujourdhui] td { color: var(--encre); }
-.tableau tr[data-aujourdhui] th::after {
-  content: " · aujourd'hui";
+.carte__detail { grid-column: 1 / -1; margin: 0; font-size: 0.98rem; opacity: 0.85; }
+/* Emplacement des prix : un seul <span> à remplir par ligne. */
+.carte__prix {
+  font-family: var(--display);
   font-size: 0.95rem;
-  letter-spacing: 0;
+  color: var(--vert);
+  white-space: nowrap;
 }
+.carte__prix:empty { display: none; }
 
-.avis-horaires {
-  background: var(--vert);
-  color: var(--creme);
-  border-radius: var(--arche);
-  padding: clamp(1.5rem, 1rem + 2.4vw, 2.4rem) clamp(1.25rem, 1rem + 2vw, 2rem) clamp(1.5rem, 1rem + 2vw, 2rem);
-  text-align: center;
-  display: grid;
-  gap: 0.9rem;
-  justify-items: center;
-  align-content: center;
+.ardoise__pied {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.8rem 1.5rem;
+  margin-top: 1.6rem;
 }
-.avis-horaires h3 {
-  font-size: 1.15rem;
-  color: var(--jaune);
-  letter-spacing: 0.02em;
-}
-.avis-horaires p { margin: 0; font-size: 1rem; max-width: 32ch; }
-.avis-horaires .note { font-family: var(--accent); font-size: 1.3rem; color: var(--jaune); }
-
-/* ---------- 15. L'ardoise ---------- */
-.ardoise {
-  display: grid;
-  gap: 1px;
-  background: rgb(44 82 42 / 0.3);
-  border: 3px solid var(--vert);
-  border-radius: var(--arche);
-  overflow: hidden;
-}
-.ardoise__item {
-  background: var(--papier);
-  padding: clamp(1.3rem, 1rem + 1.6vw, 2rem);
-  display: grid;
-  gap: 0.45rem;
-  justify-items: start;
-}
-.ardoise__item svg { width: 30px; height: 30px; color: var(--vert); }
-.ardoise__item h3 { font-size: 1.05rem; color: var(--vert); letter-spacing: 0; }
-.ardoise__item p { margin: 0; font-size: 0.98rem; }
 .ardoise__note {
   font-family: var(--accent);
-  font-size: 1.45rem;
-  line-height: 1.25;
-  color: var(--vert);
-  margin: 1.4rem 0 0;
-  max-width: 40ch;
+  font-size: clamp(1.25rem, 1.05rem + 0.9vw, 1.6rem);
+  line-height: 1.25; color: var(--vert);
+  margin: 0; max-width: 34ch;
 }
 
-/* ---------- 16. Galerie ---------- */
+/* ==========================================================================
+   13. L'ESSENTIEL — horaires + adresse et plan, sur un seul écran
+   ========================================================================== */
+.essentiel { display: grid; gap: clamp(2.25rem, 1.5rem + 3vw, 3.5rem); }
+.essentiel h3 {
+  font-size: clamp(1.35rem, 1.1rem + 1.1vw, 1.8rem);
+  color: var(--vert);
+  margin-bottom: 1rem;
+}
+
+.tableau { width: 100%; border-collapse: collapse; }
+.tableau th, .tableau td {
+  padding: 0.62rem 0.7rem;
+  text-align: left;
+  border-top: 1px solid var(--trait);
+}
+.tableau tr:last-child th, .tableau tr:last-child td { border-bottom: 1px solid var(--trait); }
+.tableau th {
+  font-family: var(--accent); font-weight: 700;
+  font-size: 1.3rem; line-height: 1.1; color: var(--vert);
+  width: 50%; padding-left: 0;
+}
+.tableau td {
+  font-family: var(--display); font-size: 0.88rem;
+  letter-spacing: -0.01em; text-align: right; padding-right: 0;
+}
+/* « Fermé » est une information, pas un murmure : 0,6 tombait à 3,66:1. */
+.tableau .ferme { font-family: var(--accent); font-size: 1.15rem; letter-spacing: 0; opacity: 0.75; }
+.tableau tr[data-aujourdhui] th, .tableau tr[data-aujourdhui] td { background: var(--jaune); color: var(--encre); }
+.tableau tr[data-aujourdhui] th { padding-left: 0.7rem; border-radius: 6px 0 0 6px; }
+.tableau tr[data-aujourdhui] td { padding-right: 0.7rem; border-radius: 0 6px 6px 0; }
+.tableau tr[data-aujourdhui] th::after { content: " · aujourd'hui"; font-size: 0.9rem; }
+
+.mention {
+  margin: 1rem 0 0;
+  font-size: 0.94rem;
+  opacity: 0.9;
+}
+.mention a { text-underline-offset: 3px; }
+
+.venir address { font-style: normal; font-size: 1.1rem; margin-bottom: 1rem; }
+.venir__reperes { margin: 1.1rem 0 0; font-size: 0.96rem; opacity: 0.9; }
+.venir .bouton { margin-top: 0.2rem; }
+
+.plan { margin: 1.25rem 0 0; }
+.plan__lien {
+  display: block;
+  border-radius: var(--arche);
+  overflow: hidden;
+  background: var(--papier);
+  text-decoration: none;
+}
+.bloc--creme .plan__lien { background: var(--papier); }
+.plan__lien svg { width: 100%; height: auto; }
+.plan figcaption { font-family: var(--accent); font-size: 1.1rem; color: var(--vert); margin-top: 0.55rem; }
+
+/* ==========================================================================
+   14. PHOTOS
+   ========================================================================== */
 .galerie {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: clamp(0.9rem, 0.6rem + 1.6vw, 1.5rem);
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: clamp(0.7rem, 0.4rem + 1.4vw, 1.15rem);
 }
 .galerie__bouton {
-  display: block;
-  width: 100%;
-  padding: 0;
-  border: var(--trait);
+  display: block; width: 100%; padding: 0; border: 0;
   border-radius: var(--arche);
   background: var(--vert);
-  overflow: hidden;
-  cursor: pointer;
-  position: relative;
+  overflow: hidden; cursor: pointer; position: relative;
 }
 .galerie__bouton img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  transition: transform 0.4s ease, opacity 0.3s ease;
+  width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+  transition: transform 0.45s ease, opacity 0.3s ease;
 }
-.galerie__bouton:hover img,
-.galerie__bouton:focus-visible img { transform: scale(1.045); opacity: 0.92; }
+.galerie__bouton:hover img, .galerie__bouton:focus-visible img { transform: scale(1.04); opacity: 0.94; }
 .galerie__legende {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 1.6rem 0.9rem 0.7rem;
-  background: linear-gradient(180deg, rgb(30 58 29 / 0) 0%, rgb(30 58 29 / 0.85) 65%);
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 1.8rem 0.9rem 0.75rem;
+  background: linear-gradient(180deg, rgb(30 58 29 / 0) 0%, rgb(30 58 29 / 0.86) 70%);
   color: var(--creme);
-  font-family: var(--accent);
-  font-size: 1.2rem;
-  line-height: 1.15;
+  font-family: var(--accent); font-size: 1.15rem; line-height: 1.15;
   text-align: left;
 }
 
 .lightbox {
-  border: 0;
-  padding: 0;
-  background: transparent;
-  max-width: min(94vw, 60rem);
-  max-height: 94dvh;
+  border: 0; padding: 0; background: transparent;
+  max-width: min(94vw, 60rem); max-height: 94dvh;
   color: var(--creme);
 }
-.lightbox::backdrop { background: rgb(30 58 29 / 0.94); }
-.lightbox__cadre { position: relative; display: grid; gap: 0.75rem; }
+.lightbox::backdrop { background: rgb(30 58 29 / 0.95); }
+.lightbox__cadre { position: relative; display: grid; gap: 0.7rem; margin: 0; }
 .lightbox img {
-  width: 100%;
-  max-height: 74dvh;
-  object-fit: contain;
-  border-radius: 10px;
-  background: var(--encre);
+  width: 100%; max-height: 74dvh; object-fit: contain;
+  border-radius: 10px; background: var(--encre);
 }
-.lightbox figcaption { font-family: var(--accent); font-size: 1.25rem; text-align: center; }
+.lightbox figcaption { font-family: var(--accent); font-size: 1.2rem; text-align: center; }
 .lightbox__nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.6rem;
+  display: flex; justify-content: center; align-items: center; gap: 0.6rem;
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 .rond {
-  width: 48px;
-  height: 48px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  border: 2px solid var(--creme);
-  background: transparent;
-  color: var(--creme);
-  cursor: pointer;
+  width: 48px; height: 48px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 50%; border: 2px solid var(--creme);
+  background: transparent; color: var(--creme); cursor: pointer;
 }
 .rond:hover { background: rgb(255 249 215 / 0.16); }
-.rond svg { width: 22px; height: 22px; }
-.lightbox__compteur { font-family: var(--display); font-size: 0.8rem; min-width: 4.5rem; text-align: center; }
-.lightbox__fermer { position: absolute; top: 0.6rem; right: 0.6rem; background: rgb(30 58 29 / 0.7); }
+.rond .ico { width: 22px; height: 22px; }
+.lightbox__compteur { font-family: var(--display); font-size: 0.78rem; min-width: 4.5rem; text-align: center; }
+.lightbox__fermer { position: absolute; top: 0.6rem; right: 0.6rem; background: rgb(30 58 29 / 0.72); }
 
-/* ---------- 17. Rendez-vous ---------- */
-.rdv { display: grid; gap: clamp(1.5rem, 1rem + 2.4vw, 2.5rem); }
-.rdv__liste { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.1rem; }
-.rdv__liste li { display: flex; gap: 0.85rem; align-items: flex-start; }
-.rdv__liste svg { width: 24px; height: 24px; flex: 0 0 auto; color: var(--jaune); margin-top: 0.2rem; }
-.rdv__liste b { font-family: var(--display); font-size: 0.85rem; letter-spacing: 0.02em; text-transform: uppercase; display: block; color: var(--jaune); }
-.rdv__carte {
-  border: 2px solid var(--jaune);
-  border-radius: var(--arche);
-  padding: clamp(1.4rem, 1rem + 2vw, 2.2rem);
-  display: grid;
-  gap: 0.9rem;
-  justify-items: start;
-  align-content: start;
+/* ==========================================================================
+   15. LE BAR + LES AVIS
+   ========================================================================== */
+.bar { display: grid; gap: clamp(2rem, 1.4rem + 2.6vw, 3.25rem); align-items: start; }
+.bar__texte p { margin: 0 0 0.9rem; }
+.bar__texte p:last-child { margin-bottom: 0; }
+.bar__aparte {
+  font-family: var(--accent);
+  font-size: clamp(1.35rem, 1.1rem + 1.1vw, 1.75rem);
+  line-height: 1.2; color: var(--vert);
+  margin: 1.3rem 0 0 !important;
 }
-.rdv__carte p { margin: 0; }
 
-/* ---------- 18. Avis ---------- */
-.avis { list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(1rem, 0.7rem + 1.4vw, 1.6rem); }
-.avis figure {
-  margin: 0;
-  height: 100%;
-  background: var(--papier);
-  border: var(--trait);
-  border-radius: 14px;
-  padding: clamp(1.2rem, 1rem + 1.4vw, 1.7rem);
-  display: grid;
-  gap: 0.8rem;
-  align-content: start;
+.avis__note {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-family: var(--display); font-size: 0.82rem;
+  text-transform: uppercase; letter-spacing: 0.02em;
+  color: var(--vert);
+  margin: 0 0 1.1rem;
 }
-.section--creme .avis figure { background: var(--creme); }
-.avis blockquote { margin: 0; font-size: 1.05rem; line-height: 1.55; }
-.avis figcaption { font-size: 0.9rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.6rem; }
-.avis figcaption b { font-family: var(--display); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.01em; color: var(--vert); }
 .etoiles { display: inline-flex; gap: 2px; color: var(--vert); }
-.etoiles svg { width: 15px; height: 15px; }
-.avis__source { color: var(--vert); }
-.avis__global {
-  font-family: var(--accent);
-  font-size: 1.4rem;
-  color: var(--vert);
-  margin: 0 0 1.6rem;
-}
+.etoiles .ico { width: 15px; height: 15px; }
 
-/* ---------- 19. Venir ---------- */
-.venir { display: grid; gap: clamp(1.6rem, 1rem + 3vw, 3rem); }
-.venir__infos { display: grid; gap: 1.4rem; align-content: start; }
-.venir__bloc h3 { font-size: 1rem; color: var(--vert); margin-bottom: 0.35rem; }
-.venir__bloc p { margin: 0; }
-.venir address { font-style: normal; font-size: 1.05rem; }
+.avis { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.avis li { border-top: 1px solid var(--trait); padding: 1rem 0; }
+.avis li:last-child { border-bottom: 1px solid var(--trait); }
+.avis figure { margin: 0; display: grid; gap: 0.4rem; }
+.avis blockquote { margin: 0; font-size: 1rem; line-height: 1.5; }
+.avis figcaption { font-size: 0.86rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.55rem; opacity: 0.9; }
+.avis figcaption b { font-family: var(--display); font-size: 0.8rem; text-transform: uppercase; color: var(--vert); }
 
-.plan { margin: 0; }
-.plan__lien {
-  display: block;
-  border: 3px solid var(--vert);
-  border-radius: var(--arche);
-  overflow: hidden;
-  background: var(--creme);
-  text-decoration: none;
+/* ==========================================================================
+   16. RENDEZ-VOUS — bande fine, une phrase, un bouton
+   ========================================================================== */
+.rdv { padding-block: clamp(2.25rem, 1.8rem + 2.2vw, 3.25rem); }
+.rdv__interieur {
+  display: grid; gap: 1.1rem; justify-items: start; align-items: center;
 }
-.section--creme .plan__lien { background: var(--papier); }
-.plan__lien svg { width: 100%; height: auto; display: block; }
-.plan figcaption {
-  font-family: var(--accent);
-  font-size: 1.15rem;
-  color: var(--vert);
-  margin-top: 0.6rem;
-}
+.rdv h2 { font-size: clamp(1.4rem, 1.1rem + 1.5vw, 2rem); color: var(--creme); }
+.rdv p { margin: 0; max-width: 46ch; }
 
-/* ---------- 20. Pied ---------- */
+/* ---------- 17. Pied ---------- */
 .pied {
-  background: var(--encre);
-  color: var(--creme);
-  padding-block: clamp(2.5rem, 2rem + 3vw, 4rem);
-  padding-bottom: calc(clamp(2.5rem, 2rem + 3vw, 4rem) + var(--barre-h));
+  background: var(--encre); color: var(--creme);
+  padding-top: clamp(2.25rem, 1.8rem + 2.2vw, 3.25rem);
+  padding-bottom: calc(clamp(2.25rem, 1.8rem + 2.2vw, 3.25rem) + var(--barre-h));
+  font-size: 0.94rem;
 }
-.pied__haut { display: grid; gap: 2rem; }
-.pied__marque { display: grid; gap: 0.8rem; justify-items: start; }
-.pied__marque img { width: 72px; height: 72px; border-radius: 50%; }
-.pied h2 { font-size: 1.15rem; color: var(--jaune); margin-bottom: 0.6rem; }
-.pied ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
-.pied a { text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.pied__haut { display: grid; gap: 1.75rem; }
+.pied__marque { display: grid; gap: 0.7rem; justify-items: start; }
+.pied__marque img { width: 60px; height: 60px; border-radius: 50%; }
+.pied h2 { font-size: 0.78rem; letter-spacing: 0.14em; color: var(--jaune); margin-bottom: 0.6rem; }
+.pied ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.45rem; }
+.pied a { text-underline-offset: 3px; }
 .pied address { font-style: normal; }
 .pied__bas {
-  margin-top: 2.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgb(255 249 215 / 0.28);
-  display: grid;
-  gap: 0.9rem;
-  font-size: 0.88rem;
+  margin-top: 2rem; padding-top: 1.25rem;
+  border-top: 1px solid rgb(255 249 215 / 0.25);
+  display: grid; gap: 0.8rem; font-size: 0.85rem;
 }
-.evin {
-  border: 1px solid var(--jaune);
-  border-radius: 8px;
-  padding: 0.7rem 0.9rem;
-  color: var(--jaune);
-  font-size: 0.88rem;
-  margin: 0;
-}
-.pied__credit { margin: 0; opacity: 0.85; }
+.evin { border: 1px solid var(--jaune); border-radius: 8px; padding: 0.65rem 0.85rem; color: var(--jaune); margin: 0; }
+.pied__credit { margin: 0; opacity: 0.82; }
 
-/* ---------- 21. Pages secondaires ---------- */
+/* ---------- 18. Pages secondaires ---------- */
 .doc { padding-block: clamp(2.5rem, 2rem + 4vw, 4.5rem); }
-.doc h1 { font-size: clamp(1.9rem, 1.2rem + 3vw, 3rem); color: var(--vert); margin-bottom: 1.5rem; }
-.doc h2 { font-size: 1.15rem; color: var(--vert); margin: 2.2rem 0 0.6rem; }
+.doc h1 { font-size: clamp(1.8rem, 1.2rem + 2.6vw, 2.75rem); color: var(--vert); margin-bottom: 1.5rem; }
+.doc h2 { font-size: 1.05rem; color: var(--vert); margin: 2.2rem 0 0.6rem; }
 .doc p, .doc li { max-width: 68ch; }
 .doc ul { padding-left: 1.2rem; }
-.doc .aremplir {
-  background: var(--jaune);
-  padding: 0.05em 0.35em;
-  border-radius: 4px;
-  font-weight: 700;
-}
+.doc .aremplir { background: var(--jaune); padding: 0.05em 0.35em; border-radius: 4px; font-weight: 700; }
 .doc__retour { display: inline-flex; margin-top: 2.5rem; }
 
-.erreur {
-  min-height: 100dvh;
-  display: grid;
-  align-content: center;
-  justify-items: start;
-  gap: 1.2rem;
-  background: var(--vert);
-  color: var(--creme);
-  padding-block: 4rem;
-}
-.erreur img { width: 108px; height: 108px; border-radius: 50%; }
-.erreur h1 { font-size: clamp(2.2rem, 1.4rem + 5vw, 4rem); color: var(--creme); }
-.erreur p { margin: 0; font-size: 1.1rem; max-width: 40ch; }
-.erreur .accent { font-family: var(--accent); font-size: 1.7rem; color: var(--jaune); }
-
-/* ---------- 22. Révélations au défilement ---------- */
-.reveler { opacity: 0; transform: translateY(18px); }
-.js .reveler { transition: opacity 0.6s ease, transform 0.6s ease; }
+/* ---------- 19. Révélations ---------- */
+.reveler { opacity: 0; transform: translateY(14px); }
+.js .reveler { transition: opacity 0.55s ease, transform 0.55s ease; }
 .reveler[data-vu] { opacity: 1; transform: none; }
 html:not(.js) .reveler { opacity: 1; transform: none; }
 
-/* ---------- 23. Points de rupture ---------- */
+/* ---------- 20. Points de rupture ---------- */
 @media (min-width: 40em) {
-  .bandeau__liste { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-  .ardoise { grid-template-columns: 1fr 1fr; }
   .galerie { grid-template-columns: 1fr 1fr; }
-  .avis { grid-template-columns: 1fr 1fr; }
-  .pied__haut { grid-template-columns: 1.2fr 1fr 1fr; }
+  .pied__haut { grid-template-columns: 1.3fr 1fr 1fr; }
+  .rdv__interieur { grid-template-columns: 1fr auto; }
+  .rdv p { grid-column: 1; }
+  .rdv .bouton { grid-row: 1 / 3; grid-column: 2; }
+  .carte { grid-template-columns: 1fr 1fr; column-gap: clamp(2rem, 1rem + 4vw, 4rem); }
+  .carte__ligne { grid-template-columns: 1fr auto; }
 }
 
 @media (min-width: 56em) {
-  .horaires__grille { grid-template-columns: 1.35fr 1fr; align-items: start; }
-  .histoire { grid-template-columns: 1.15fr 1fr; align-items: center; }
-  .rdv { grid-template-columns: 1.1fr 1fr; align-items: start; }
-  .venir { grid-template-columns: 1fr 1.15fr; align-items: start; }
-  .hero__contenu { max-width: 46rem; }
+  .essentiel { grid-template-columns: 1fr 1.1fr; }
+  .bar { grid-template-columns: 1.05fr 1fr; }
+  .hero__contenu { max-width: 48rem; }
 }
 
 @media (min-width: 62em) {
-  :root { --bande-l: 2.75rem; }
+  :root { --bande-l: 2.5rem; }
   .bande { display: flex; }
   .entete { display: block; }
   .actions { display: none; }
-  .hero { min-height: calc(100dvh - 4rem); }
-  html { scroll-padding-top: 5.25rem; }
+  html { scroll-padding-top: 5rem; }
 }
 
-/* écrans étroits : la barre d'actions occupe de la place en bas */
 @media (max-width: 61.99em) {
-  :root { --barre-h: 4.6rem; }
+  :root { --barre-h: 4.5rem; }
 }
 
-/* ---------- 24. Mouvement réduit ---------- */
+/* ---------- 21. Mouvement réduit ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
@@ -819,11 +564,11 @@ html:not(.js) .reveler { opacity: 1; transform: none; }
   .badge[data-etat="ouvert"] .badge__point::after { display: none; }
 }
 
-/* ---------- 25. Impression ---------- */
+/* ---------- 22. Impression ---------- */
 @media print {
   .bande, .actions, .entete, .hero__fond, .hero__voile, .galerie, .lightbox { display: none !important; }
   body { background: #fff; color: #000; padding: 0; }
-  .section, .hero, .bandeau, .pied { background: #fff !important; color: #000 !important; padding-block: 1rem; }
+  .bloc, .hero, .rdv, .pied { background: #fff !important; color: #000 !important; padding-block: 1rem; }
   .hero { min-height: auto; }
   a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.8em; }
 }

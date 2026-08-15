@@ -23,6 +23,22 @@ aucun cookie, et pas de bandeau de consentement à afficher.
 
 ---
 
+## Ajouter les prix
+
+Les prix sont le premier manque du site : 86 % des gens consultent la carte d'un bar
+avant de s'y rendre, et la nôtre n'en affiche aucun. Chaque ligne de la section
+« La carte » (dans `index.html`) contient un emplacement vide, prêt à recevoir le sien :
+
+```html
+<span class="carte__prix"></span>          <!-- avant  -->
+<span class="carte__prix">à partir de 3 €</span>   <!-- après -->
+```
+
+Tant qu'il est vide, il ne s'affiche pas — rien d'autre à toucher, pas de mise en page
+à reprendre. Six lignes à remplir, dix minutes de travail.
+
+---
+
 ## Prévisualiser
 
 - **Le plus simple :** double-cliquez `index.html`. Tout fonctionne, badge compris.

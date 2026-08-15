@@ -32,6 +32,18 @@ const paires = [
   ['bande verticale ARCHERS (déco)', 'jaune', 'vert', C.jaune, C.vert, 3],
 ];
 
+/* Textes atténués par opacity : on teste la couleur réellement obtenue, pas la couleur nominale. */
+const melange = (fg, a, bg) => '#' + over(fg, a, bg).map(v => v.toString(16).padStart(2, '0')).join('');
+paires.push(
+  ['surtitre (vert à 85 %)', 'vert 0,85', 'papier', melange(C.vert, 0.85, C.papier), C.papier, 4.5],
+  ['surtitre sur crème', 'vert 0,85', 'creme', melange(C.vert, 0.85, C.creme), C.creme, 4.5],
+  ['« Fermé » du tableau (75 %)', 'encre 0,75', 'creme', melange(C.encre, 0.75, C.creme), C.creme, 4.5],
+  ['détail des lignes de carte (85 %)', 'encre 0,85', 'papier', melange(C.encre, 0.85, C.papier), C.papier, 4.5],
+  ['mentions et repères (90 %)', 'encre 0,90', 'creme', melange(C.encre, 0.9, C.creme), C.creme, 4.5],
+  ['attribution des avis (90 %)', 'encre 0,90', 'creme', melange(C.encre, 0.9, C.creme), C.creme, 4.5],
+  ['crédit du pied (82 %)', 'creme 0,82', 'encre', melange(C.creme, 0.82, C.encre), C.encre, 4.5]
+);
+
 let echecs = 0;
 console.log('paire'.padEnd(34) + 'avant/arrière'.padEnd(34) + 'ratio    exigé  verdict');
 console.log('-'.repeat(96));

@@ -120,14 +120,7 @@
         "Le bar est " + (s.ouvert ? "ouvert" : "fermé") + " en ce moment, il " + phrase(s) + ".");
     }
 
-    /* b. ligne « aujourd'hui » du bandeau */
-    var duJour = $("#horaires-du-jour");
-    if (duJour) {
-      var t = texteCreneaux(semaine[now.iso]);
-      duJour.textContent = t ? t : "Fermé aujourd'hui";
-    }
-
-    /* c. tableau : mise à jour et surlignage du jour courant */
+    /* b. tableau : mise à jour et surlignage du jour courant */
     $$("tr[data-iso]").forEach(function (tr) {
       var iso = +tr.getAttribute("data-iso");
       var cell = tr.cells[1];

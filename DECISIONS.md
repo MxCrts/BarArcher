@@ -5,6 +5,37 @@ une confirmation du bar sont dans `TODO-CLIENT.md`.
 
 ---
 
+## Structure : six blocs, moitié moins de défilement
+
+La première version comptait dix sections et se lisait comme un dépliant : trop long
+pour un bar de village, où la visite dure trente secondes et sert à répondre à trois
+questions — *c'est ouvert ? c'est où ? ça coûte combien ?*
+
+La refonte fusionne et raccourcit :
+
+| avant | après |
+|---|---|
+| hero 100dvh | hero **82dvh** — on voit dépasser le bloc suivant, le site s'annonce court |
+| bandeau infos + horaires + venir *(3 sections)* | **un seul bloc « Horaires & adresse »**, deux colonnes |
+| ardoise en 4 cartes encadrées | **la carte, en tête de page**, six lignes sur filets |
+| histoire *(200 mots)* + avis *(4 encadrés)* | **un bloc**, texte ramené à ~110 mots, avis en liste |
+| rendez-vous en section pleine | **une bande**, une phrase, un bouton |
+
+Six blocs au lieu de dix, et chacun plus court : le défilement est divisé par deux.
+
+**La carte passe en premier**, avant les horaires. C'est contre-intuitif pour un bar,
+mais c'est ce que dit la mesure : 86 % des clients consultent la carte avant de se
+déplacer, et l'ordre de référence des sites de restaurants performants place le menu
+juste après le hero. Le statut Ouvert/Fermé, lui, reste dans le hero — il répond à la
+question la plus urgente sans le moindre défilement.
+
+**Épuration :** les surtitres manuscrits par section ont disparu au profit d'un simple
+label en capitales ; les cadres, bordures de 2-3 px et fonds de cartes ont été
+remplacés par des filets à 16 % d'opacité ; le motif d'arche ne subsiste que sur les
+photos et le plan, au lieu de six emplacements. Il reste beaucoup plus de blanc.
+
+---
+
 ## Identité visuelle
 
 ### Palette relevée sur les fichiers, pas inventée
@@ -54,17 +85,16 @@ du titre du hero.
 
 ### L'arche et la bande ARCHERS
 L'ogive du logo est aussi celle des arcades de la halle et des porches du village.
-Elle sert de **forme récurrente** : masque des quatre photos de la galerie, cadre du
-plan, cartouche « Les horaires bougent », panneau des rendez-vous, bloc de l'ardoise.
-Elle réapparaît une dernière fois en bas du hero, en **arcade répétée** dessinée en CSS
-(motif SVG en data-URI, aucune requête) qui fait la jonture entre la photo et le bandeau
-vert. C'est la seule audace de forme ; tout le reste est droit.
+Après épuration, elle ne subsiste qu'à **deux endroits** : le masque des quatre photos
+de la galerie, et le cadre du plan. C'est la seule audace de forme ; tout le reste est
+droit. Elle était initialement présente à six endroits — c'était une manie, plus un
+motif.
 
 La bande verticale `ARCHERS` de l'affiche est reprise en bordure droite fixe à partir
-de 62em, vert sur jaune, avec deux points en rappel du rond du logo. **En dessous de
-62em elle disparaît** : sur un petit écran, la barre d'actions occupe déjà le bas, une
-bande latérale en plus aurait été de l'encombrement. Le corps de page réserve sa largeur
-via `padding-right`, ce qui évite tout `100vw` et donc tout débordement horizontal.
+de 62em, jaune sur vert. **En dessous de 62em elle disparaît** : sur un petit écran, la
+barre d'actions occupe déjà le bas, une bande latérale en plus aurait été de
+l'encombrement. Le corps de page réserve sa largeur via `padding-right`, ce qui évite
+tout `100vw` et donc tout débordement horizontal.
 
 ---
 

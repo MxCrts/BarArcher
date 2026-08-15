@@ -4,17 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Le Bar des Archers — bar de village à Rieux-Volvestre (31)</title>
-<meta name="description" content="Le Bar des Archers, 8 place de la Halle à Rieux-Volvestre : horaires d'été, terrasse sous la halle, concerts. L'institution du village a rouvert.">
+<meta name="description" content="Le Bar des Archers, 8 place de la Halle à Rieux-Volvestre : horaires d'été, la carte, la terrasse sous la halle et l'itinéraire. L'institution du village a rouvert.">
 <link rel="canonical" href="https://lebardesarchers.fr/">
 <meta name="theme-color" content="#2C522A">
 <meta name="robots" content="index, follow">
 
-<!-- Open Graph / Twitter -->
 <meta property="og:type" content="business.business">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Le Bar des Archers">
 <meta property="og:title" content="Le Bar des Archers — bar de village à Rieux-Volvestre">
-<meta property="og:description" content="Sur la place de la Halle, au centre du village. Horaires d'été, terrasse sous la halle, concerts.">
+<meta property="og:description" content="Sur la place de la Halle, au centre du village. Horaires, carte, terrasse sous la halle.">
 <meta property="og:url" content="https://lebardesarchers.fr/">
 <meta property="og:image" content="https://lebardesarchers.fr/assets/photos/hero-terrasse-halle-1360.jpg">
 <meta property="og:image:width" content="1360">
@@ -22,41 +21,42 @@
 <meta property="og:image:alt" content="La terrasse du Bar des Archers sous la halle de Rieux-Volvestre.">
 <meta name="twitter:card" content="summary_large_image">
 
-<!-- Icônes -->
 <link rel="icon" href="assets/icons/icon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/icons/icon-180.png">
 <link rel="manifest" href="site.webmanifest">
 
-<!-- Police du hero : préchargée, auto-hébergée, aucune requête tierce -->
 <link rel="preload" href="assets/fonts/montserrat-800-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" as="image" type="image/avif" fetchpriority="high"
       imagesrcset="assets/photos/hero-terrasse-halle-640.avif 640w, assets/photos/hero-terrasse-halle-960.avif 960w, assets/photos/hero-terrasse-halle-1360.avif 1360w"
-      imagesizes="(min-width: 62em) calc(100vw - 2.75rem), 100vw">
+      imagesizes="(min-width: 62em) calc(100vw - 2.5rem), 100vw">
 
-<!-- CSS critique du hero, inliné pour un premier rendu immédiat -->
+<!-- CSS critique du hero, inliné : premier rendu sans attendre la feuille externe -->
 <style>
-:root{--vert:#2c522a;--encre:#1e3a1d;--jaune:#ffdc59;--creme:#fff9d7;--papier:#f4f2e8;--display:"Montserrat","Segoe UI",system-ui,sans-serif;--accent:"Caveat","Segoe UI",system-ui,sans-serif;--gouttiere:clamp(1.15rem,.6rem + 2.6vw,2.5rem);--large:68rem;--bande-l:0px;--barre-h:0px}
+:root{--vert:#2c522a;--encre:#1e3a1d;--jaune:#ffdc59;--creme:#fff9d7;--papier:#f4f2e8;--display:"Montserrat","Segoe UI",system-ui,sans-serif;--accent:"Caveat","Segoe UI",system-ui,sans-serif;--gouttiere:clamp(1.15rem,.55rem + 2.8vw,2.5rem);--large:70rem;--bande-l:0px;--barre-h:0px}
 *,*::before,*::after{box-sizing:border-box}
-body{margin:0;padding-right:var(--bande-l);background:var(--papier);color:var(--encre);font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-size:clamp(1rem,.96rem + .2vw,1.0625rem);line-height:1.65}
+body{margin:0;padding-right:var(--bande-l);background:var(--papier);color:var(--encre);font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-size:clamp(1rem,.95rem + .24vw,1.0938rem);line-height:1.6}
 img,svg,picture{display:block;max-width:100%}img{height:auto}
-h1{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:-.035em;line-height:1.02;margin:0}
+h1{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:-.04em;line-height:1.03;margin:0}
 .enveloppe{width:100%;max-width:var(--large);margin-inline:auto;padding-inline:var(--gouttiere)}
-.hero{position:relative;min-height:100dvh;display:grid;align-items:end;isolation:isolate;background:var(--encre);color:var(--creme);padding-top:max(1.5rem,env(safe-area-inset-top,0px));padding-bottom:calc(3.5rem + var(--barre-h));overflow:hidden}
+.hero{position:relative;min-height:82dvh;display:grid;align-items:end;isolation:isolate;background:var(--encre);color:var(--creme);padding-top:max(2rem,env(safe-area-inset-top,0px));padding-bottom:calc(3rem + var(--barre-h));overflow:hidden}
 .hero__fond{position:absolute;inset:0;z-index:-2}
-.hero__fond img{width:100%;height:100%;object-fit:cover;object-position:50% 42%}
-.hero__voile{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgb(30 58 29/.52) 0%,rgb(30 58 29/.44) 28%,rgb(30 58 29/.84) 52%,rgb(30 58 29/.94) 100%)}
-.hero__contenu{display:grid;justify-items:start;gap:1.15rem}
-.hero__logo{width:clamp(84px,21vw,128px);height:clamp(84px,21vw,128px);border-radius:50%;box-shadow:0 0 0 4px var(--creme)}
-.hero h1{font-size:clamp(2.35rem,1.1rem + 8.4vw,5.5rem)}
+.hero__fond img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.hero__voile{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgb(30 58 29/.5) 0%,rgb(30 58 29/.42) 26%,rgb(30 58 29/.84) 50%,rgb(30 58 29/.94) 100%)}
+.hero__contenu{display:grid;justify-items:start;gap:1rem}
+.hero__logo{width:clamp(76px,17vw,104px);height:clamp(76px,17vw,104px);border-radius:50%}
+.hero h1{font-size:clamp(2.4rem,1rem + 9.2vw,5.75rem)}
 .hero h1 .lig{display:block}.hero h1 .lig--jaune{color:var(--jaune)}
-.hero__signature{font-family:var(--accent);font-size:clamp(1.45rem,1.1rem + 2vw,2.1rem);line-height:1.15;color:var(--jaune);margin:-.35rem 0 0}
-.hero__lieu{margin:0;font-family:var(--display);font-size:.78rem;letter-spacing:.04em;text-transform:uppercase}
-.badge{display:inline-flex;align-items:center;gap:.65rem;padding:.62rem 1.15rem .62rem .95rem;border-radius:999px;background:var(--creme);color:var(--encre);border:2px solid var(--encre);font-size:.98rem;line-height:1.25;max-width:100%;text-decoration:none}
-.badge__point{width:12px;height:12px;border-radius:50%;background:var(--encre);flex:0 0 auto;position:relative}
-.badge__etat{font-family:var(--display);text-transform:uppercase;font-size:.8rem;letter-spacing:.03em}
+.hero__signature{font-family:var(--accent);font-size:clamp(1.4rem,1.05rem + 1.9vw,2rem);line-height:1.15;color:var(--jaune);margin:-.4rem 0 .15rem}
+.hero__actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.35rem}
+.badge{display:inline-flex;align-items:center;gap:.6rem;padding:.6rem 1.15rem .6rem .95rem;border-radius:999px;background:var(--creme);color:var(--encre);font-size:.98rem;line-height:1.25;max-width:100%;text-decoration:none}
+.badge__point{width:11px;height:11px;border-radius:50%;background:var(--encre);flex:0 0 auto;position:relative}
+.badge__etat{font-family:var(--display);text-transform:uppercase;font-size:.78rem;letter-spacing:.03em}
 .badge__detail{font-family:var(--accent);font-size:1.15rem}.badge__detail::before{content:"· "}
-@media (min-width:62em){:root{--bande-l:2.75rem}.hero{min-height:calc(100dvh - 4rem)}}
-@media (max-width:61.99em){:root{--barre-h:4.6rem}}
+.bouton{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:48px;padding:.7rem 1.2rem;border:2px solid transparent;border-radius:999px;background:var(--jaune);color:var(--encre);font-family:var(--display);font-size:.8rem;letter-spacing:.02em;text-transform:uppercase;text-decoration:none}
+.bouton--fantome{background:transparent;border-color:currentColor;color:inherit}
+.ico{width:20px;height:20px;flex:0 0 auto}
+@media (min-width:62em){:root{--bande-l:2.5rem}}
+@media (max-width:61.99em){:root{--barre-h:4.5rem}}
 </style>
 <link rel="stylesheet" href="assets/css/style.css">
 <script>document.documentElement.className += " js";</script>
@@ -65,14 +65,16 @@ h1{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-sp
 <body>
 <a class="evitement" href="#contenu">Aller au contenu</a>
 
-<!-- Icônes réutilisées, dessinées à la main. Aucune bibliothèque, aucune requête. -->
+<!-- Icônes dessinées à la main, réutilisées via <use>. Aucune bibliothèque. -->
 <svg class="sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
 <symbol id="i-etoile" viewBox="0 0 24 24" fill="currentColor"><path d="m12 3 2.6 5.6 6.1.8-4.5 4.2 1.2 6L12 16.7 6.6 19.6l1.2-6L3.3 9.4l6.1-.8Z"/></symbol>
 <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></symbol>
 <symbol id="i-insta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-croix" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+<symbol id="i-gauche" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m14 5-7 7 7 7"/></symbol>
+<symbol id="i-droite" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m10 5 7 7-7 7"/></symbol>
 </defs></svg>
 
-<!-- Signature verticale du logo, reprise en bordure d'écran (desktop) -->
 <div class="bande" aria-hidden="true">Archers</div>
 
 <header class="entete">
@@ -82,21 +84,17 @@ h1{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-sp
       <span>Le Bar<br>des Archers</span>
     </a>
     <nav class="entete__nav" aria-label="Sections du site">
-      <a href="#histoire">Le bar</a>
-      <a href="#horaires">Horaires</a>
-      <a href="#ardoise">L'ardoise</a>
-      <a href="#galerie">Photos</a>
-      <a href="#rendez-vous">Rendez-vous</a>
-      <a href="#venir">Venir</a>
+      <a href="#carte">La carte</a>
+      <a href="#essentiel">Horaires &amp; adresse</a>
+      <a href="#photos">Photos</a>
+      <a href="#bar">Le bar</a>
     </nav>
     <div class="entete__actions">
       <a class="bouton bouton--clair" href="https://www.google.com/maps/dir/?api=1&amp;destination=8%20place%20de%20la%20Halle%2C%2031310%20Rieux-Volvestre" target="_blank" rel="noopener">
-        <svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>
-        Itinéraire
+        <svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Itinéraire
       </a>
       <a class="bouton bouton--fantome" href="https://www.instagram.com/lebardesarchers/" target="_blank" rel="noopener">
-        <svg class="ico" aria-hidden="true"><use href="#i-insta"/></svg>
-        Instagram
+        <svg class="ico" aria-hidden="true"><use href="#i-insta"/></svg> Instagram
       </a>
     </div>
   </div>
@@ -104,12 +102,12 @@ h1{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-sp
 
 <main id="contenu">
 
-  <!-- ============ 1. HERO ============ -->
+  <!-- ═══ 1. HERO ═══ -->
   <section class="hero" id="hero">
     <div class="hero__fond">
       <picture>
-        <source type="image/avif" sizes="(min-width: 62em) calc(100vw - 2.75rem), 100vw" srcset="assets/photos/hero-terrasse-halle-640.avif 640w, assets/photos/hero-terrasse-halle-960.avif 960w, assets/photos/hero-terrasse-halle-1360.avif 1360w">
-        <source type="image/webp" sizes="(min-width: 62em) calc(100vw - 2.75rem), 100vw" srcset="assets/photos/hero-terrasse-halle-640.webp 640w, assets/photos/hero-terrasse-halle-960.webp 960w, assets/photos/hero-terrasse-halle-1360.webp 1360w">
+        <source type="image/avif" sizes="(min-width: 62em) calc(100vw - 2.5rem), 100vw" srcset="assets/photos/hero-terrasse-halle-640.avif 640w, assets/photos/hero-terrasse-halle-960.avif 960w, assets/photos/hero-terrasse-halle-1360.avif 1360w">
+        <source type="image/webp" sizes="(min-width: 62em) calc(100vw - 2.5rem), 100vw" srcset="assets/photos/hero-terrasse-halle-640.webp 640w, assets/photos/hero-terrasse-halle-960.webp 960w, assets/photos/hero-terrasse-halle-1360.webp 1360w">
         <img src="assets/photos/hero-terrasse-halle-1360.jpg" width="1360" height="1020" fetchpriority="high" decoding="async"
              alt="La terrasse du Bar des Archers installée sous la halle de Rieux-Volvestre, tables et chaises face à la façade en brique du bar, en fin d'après-midi.">
       </picture>
@@ -120,152 +118,158 @@ h1{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-sp
       <img class="hero__logo" src="assets/photos/logo-rond-360.png" width="360" height="360" fetchpriority="high" decoding="async"
            alt="Logo du Bar des Archers : un arc et une flèche jaunes sur un rond vert.">
       <h1><span class="lig">Le Bar</span><span class="lig lig--jaune">des Archers</span></h1>
-      <p class="hero__signature">On vous attend au bar !</p>
+      <p class="hero__signature">8 place de la Halle, Rieux-Volvestre</p>
 
-      <a class="badge" id="badge" href="#horaires">
+      <a class="badge" id="badge" href="#essentiel">
         <span class="badge__point" aria-hidden="true"></span>
         <span class="badge__etat">Horaires</span>
         <span class="badge__detail">voir le tableau</span>
       </a>
 
-      <p class="hero__lieu">8 place de la Halle · 31310 Rieux-Volvestre</p>
-    </div>
-
-    <div class="hero__arcade" aria-hidden="true"></div>
-  </section>
-
-  <!-- ============ 2. BANDEAU INFOS ============ -->
-  <section class="bandeau sur-vert" aria-label="En bref">
-    <div class="enveloppe">
-      <ul class="bandeau__liste">
-        <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.4 2"/></svg>
-          <span><b>Aujourd'hui</b><span id="horaires-du-jour">Voir le tableau des horaires</span></span>
-        </li>
-        <li>
-          <svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>
-          <span><b>Où</b>8 place de la Halle, au centre du village</span>
-        </li>
-        <li>
-          <svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg>
-          <span><b>Avis</b>4,7 sur 5 — 7 avis Google</span>
-        </li>
-      </ul>
+      <div class="hero__actions">
+        <a class="bouton" href="https://www.google.com/maps/dir/?api=1&amp;destination=8%20place%20de%20la%20Halle%2C%2031310%20Rieux-Volvestre" target="_blank" rel="noopener">
+          <svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Itinéraire
+        </a>
+        <a class="bouton bouton--fantome" href="https://www.instagram.com/lebardesarchers/" target="_blank" rel="noopener">
+          <svg class="ico" aria-hidden="true"><use href="#i-insta"/></svg> Instagram
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- ============ 3. L'HISTOIRE ============ -->
-  <section class="section" id="histoire" aria-labelledby="t-histoire">
+  <!-- ═══ 2. LA CARTE — en premier : c'est ce que les gens consultent avant de venir ═══ -->
+  <section class="bloc" id="carte" aria-labelledby="t-carte">
     <div class="enveloppe">
-      <div class="histoire">
-        <div class="histoire__texte reveler">
-          <span class="oeil">depuis des décennies</span>
-          <h2 class="titre" id="t-histoire">L'institution est revenue</h2>
-          <p>« Le Bar des Archers renaît, l'institution de plusieurs décennies revient dans le village. » C'est en ces termes que le bar a annoncé sa réouverture, à l'occasion du Papogay — la fête de tir à l'arc de Rieux-Volvestre, celle où l'on vise l'oiseau planté au sommet du mât. Le nom vient de là. Ce n'est pas un décor : c'est l'histoire du village, et elle est peinte sur les murs de la salle.</p>
-          <p>L'adresse est au 8, place de la Halle. Pas à côté du centre : au centre, sous les piliers de brique de la halle, à deux pas de la cathédrale Sainte-Marie et de son clocher octogonal. On y passe pour un café le dimanche matin, pour s'asseoir en terrasse l'après-midi, pour un concert le samedi soir.</p>
-          <p>Depuis la réouverture, le bar est ouvert tout l'été. Les randonneurs de la Via Garona s'y arrêtent en descendant vers Saint-Bertrand-de-Comminges, les gens du village s'y retrouvent, et tout le monde tient sur la même terrasse.</p>
-          <p class="histoire__aparte">On vous attend au bar !</p>
+      <p class="surtitre">Ce qu'on boit</p>
+      <h2 class="titre" id="t-carte">La carte</h2>
+
+      <!-- Ajouter un prix = remplir le <span class="carte__prix"> de la ligne.
+           Vide, il ne s'affiche pas. Rien d'autre à toucher. -->
+      <div class="carte reveler">
+        <div class="carte__ligne">
+          <h3 class="carte__nom">Bières pression</h3>
+          <span class="carte__prix"></span>
+          <p class="carte__detail">Les pressions du moment, au demi ou à la pinte.</p>
+        </div>
+        <div class="carte__ligne">
+          <h3 class="carte__nom">Bières bouteille</h3>
+          <span class="carte__prix"></span>
+          <p class="carte__detail">Une sélection qui tourne, blondes, blanches et ambrées.</p>
+        </div>
+        <div class="carte__ligne">
+          <h3 class="carte__nom">Vins de la région</h3>
+          <span class="carte__prix"></span>
+          <p class="carte__detail">Au verre ou à la bouteille, selon les arrivages.</p>
+        </div>
+        <div class="carte__ligne">
+          <h3 class="carte__nom">Apéritifs</h3>
+          <span class="carte__prix"></span>
+          <p class="carte__detail">Les grands classiques, et des versions sans alcool.</p>
+        </div>
+        <div class="carte__ligne">
+          <h3 class="carte__nom">Cafés</h3>
+          <span class="carte__prix"></span>
+          <p class="carte__detail">Expresso, allongé, noisette. Servis dès l'ouverture le dimanche.</p>
+        </div>
+        <div class="carte__ligne">
+          <h3 class="carte__nom">Softs</h3>
+          <span class="carte__prix"></span>
+          <p class="carte__detail">Sirops, limonades, sodas et jus de fruits.</p>
+        </div>
+      </div>
+
+      <div class="ardoise__pied">
+        <p class="ardoise__note">La carte tourne au fil des saisons — les prix sont sur l'ardoise, au bar.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 3. L'ESSENTIEL — horaires et adresse sur un seul écran ═══ -->
+  <section class="bloc bloc--creme" id="essentiel" aria-labelledby="t-essentiel">
+    <div class="enveloppe">
+      <p class="surtitre">L'essentiel</p>
+      <h2 class="titre" id="t-essentiel">Horaires &amp; adresse</h2>
+
+      <div class="essentiel">
+        <div class="reveler">
+          <h3>Nos horaires</h3>
+          <!-- ══════════════════════════════════════════════════════════════
+               MIROIR HORAIRES (1/2) — doit refléter data/horaires.json.
+               JavaScript réécrit ce tableau depuis le JSON dès qu'il est
+               lisible ; ce contenu statique est le repli sans JavaScript.
+               ══════════════════════════════════════════════════════════════ -->
+          <table class="tableau">
+            <tbody>
+              <tr data-iso="1" data-creneaux=""><th scope="row">Lundi</th><td class="ferme">Fermé</td></tr>
+              <tr data-iso="2" data-creneaux=""><th scope="row">Mardi</th><td class="ferme">Fermé</td></tr>
+              <tr data-iso="3" data-creneaux="14:00-21:00"><th scope="row">Mercredi</th><td>14h – 21h</td></tr>
+              <tr data-iso="4" data-creneaux="14:00-21:00"><th scope="row">Jeudi</th><td>14h – 21h</td></tr>
+              <tr data-iso="5" data-creneaux="16:00-00:00"><th scope="row">Vendredi</th><td>16h – minuit</td></tr>
+              <tr data-iso="6" data-creneaux="16:00-00:00"><th scope="row">Samedi</th><td>16h – minuit</td></tr>
+              <tr data-iso="7" data-creneaux="09:00-14:00"><th scope="row">Dimanche</th><td>9h – 14h</td></tr>
+            </tbody>
+          </table>
+          <p class="mention">Horaires d'été, indicatifs. Le programme de la semaine est publié
+          <a href="https://www.instagram.com/lebardesarchers/" target="_blank" rel="noopener">sur Instagram</a>.</p>
         </div>
 
-        <figure class="histoire__photo reveler">
-          <picture>
-            <source type="image/avif" sizes="(min-width: 56em) 30rem, 92vw" srcset="assets/photos/galerie-facade-enseigne-400.avif 400w, assets/photos/galerie-facade-enseigne-530.avif 530w">
-            <source type="image/webp" sizes="(min-width: 56em) 30rem, 92vw" srcset="assets/photos/galerie-facade-enseigne-400.webp 400w, assets/photos/galerie-facade-enseigne-530.webp 530w">
-            <img src="assets/photos/galerie-facade-enseigne-530.jpg" width="530" height="398" loading="lazy" decoding="async"
-                 alt="La façade du Bar des Archers au 8 place de la Halle : son enseigne peinte à la main et la porte grande ouverte sur la salle.">
-          </picture>
-          <figcaption>L'enseigne peinte, sur la place</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 4. HORAIRES ============ -->
-  <section class="section section--creme" id="horaires" aria-labelledby="t-horaires">
-    <div class="enveloppe">
-      <div class="tete">
-        <span class="oeil">on ouvre quand ?</span>
-        <h2 class="titre" id="t-horaires">Nos horaires</h2>
-      </div>
-
-      <div class="horaires__grille">
-        <!-- ============================================================
-             MIROIR HORAIRES (1/2) — doit refléter data/horaires.json.
-             JavaScript réécrit ce tableau à partir du JSON dès qu'il est
-             lisible ; ce contenu statique sert de repli sans JavaScript.
-             ============================================================ -->
-        <table class="tableau reveler">
-          <caption>Horaires d'été, relevés au bar. Ils sont indicatifs.</caption>
-          <tbody>
-            <tr data-iso="1" data-creneaux=""><th scope="row">Lundi</th><td class="ferme">Fermé</td></tr>
-            <tr data-iso="2" data-creneaux=""><th scope="row">Mardi</th><td class="ferme">Fermé</td></tr>
-            <tr data-iso="3" data-creneaux="14:00-21:00"><th scope="row">Mercredi</th><td>14h – 21h</td></tr>
-            <tr data-iso="4" data-creneaux="14:00-21:00"><th scope="row">Jeudi</th><td>14h – 21h</td></tr>
-            <tr data-iso="5" data-creneaux="16:00-00:00"><th scope="row">Vendredi</th><td>16h – minuit</td></tr>
-            <tr data-iso="6" data-creneaux="16:00-00:00"><th scope="row">Samedi</th><td>16h – minuit</td></tr>
-            <tr data-iso="7" data-creneaux="09:00-14:00"><th scope="row">Dimanche</th><td>9h – 14h</td></tr>
-          </tbody>
-        </table>
-
-        <div class="avis-horaires reveler">
-          <h3>Les horaires bougent</h3>
-          <p>Le bar publie le programme de chaque semaine sur Instagram. Le tableau ci-contre donne le rythme de l'été : c'est un repère, pas une garantie.</p>
-          <p class="note">En cas de doute, c'est là que ça se passe.</p>
-          <a class="bouton" href="https://www.instagram.com/lebardesarchers/" target="_blank" rel="noopener">
-            <svg class="ico" aria-hidden="true"><use href="#i-insta"/></svg>
-            Le programme de la semaine
+        <div class="venir reveler">
+          <h3>Venir au bar</h3>
+          <address>
+            8 place de la Halle<br>
+            31310 Rieux-Volvestre
+          </address>
+          <a class="bouton" href="https://www.google.com/maps/dir/?api=1&amp;destination=8%20place%20de%20la%20Halle%2C%2031310%20Rieux-Volvestre" target="_blank" rel="noopener">
+            <svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Lancer l'itinéraire
           </a>
+          <p class="venir__reperes">Au centre exact du village, sous la halle et ses piliers de brique.
+          On stationne sur la place. Rieux-Volvestre est une étape de la Via Garona,
+          entre Toulouse et Saint-Bertrand-de-Comminges.</p>
+
+          <figure class="plan">
+            <a class="plan__lien" href="https://www.google.com/maps/dir/?api=1&amp;destination=8%20place%20de%20la%20Halle%2C%2031310%20Rieux-Volvestre" target="_blank" rel="noopener"
+               aria-label="Ouvrir l'itinéraire vers le Bar des Archers, 8 place de la Halle à Rieux-Volvestre, dans Google Maps (nouvel onglet)">
+              <svg viewBox="0 0 800 470" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                <rect width="800" height="470" fill="#fff9d7"/>
+                <path d="M-20 408C120 372 180 448 320 454c150 6 280-24 500-8" fill="none" stroke="#2c522a" stroke-opacity=".22" stroke-width="24" stroke-linecap="round"/>
+                <text x="118" y="446" font-family="Caveat, cursive" font-size="28" fill="#2c522a" fill-opacity=".7">L'Arize</text>
+                <g fill="#2c522a" fill-opacity=".1">
+                  <rect x="34" y="44" width="170" height="106" rx="10"/>
+                  <rect x="34" y="196" width="112" height="130" rx="10"/>
+                  <rect x="614" y="44" width="152" height="98" rx="10"/>
+                </g>
+                <rect x="182" y="72" width="392" height="288" rx="16" fill="#2c522a" fill-opacity=".06" stroke="#2c522a" stroke-opacity=".3" stroke-width="3" stroke-dasharray="10 9"/>
+                <text x="206" y="108" font-family="Montserrat, sans-serif" font-weight="800" font-size="18" letter-spacing="1.5" fill="#2c522a" fill-opacity=".65">PLACE DE LA HALLE</text>
+                <rect x="264" y="164" width="234" height="140" rx="8" fill="#2c522a"/>
+                <g fill="#fff9d7">
+                  <path d="M289 304v-54a21 21 0 0 1 42 0v54Z"/>
+                  <path d="M360 304v-54a21 21 0 0 1 42 0v54Z"/>
+                  <path d="M431 304v-54a21 21 0 0 1 42 0v54Z"/>
+                </g>
+                <text x="381" y="148" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="20" letter-spacing="2" fill="#2c522a">LA HALLE</text>
+                <path d="M180 208v-36a32 32 0 0 1 64 0v36Z" fill="#ffdc59" stroke="#2c522a" stroke-width="5"/>
+                <circle cx="212" cy="178" r="8" fill="#2c522a"/>
+                <text x="158" y="244" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="18" fill="#2c522a">LE BAR</text>
+                <text x="158" y="268" text-anchor="middle" font-family="Caveat, cursive" font-size="26" fill="#2c522a">8, place de la Halle</text>
+                <rect x="620" y="234" width="146" height="92" rx="8" fill="#2c522a" fill-opacity=".2"/>
+                <path d="M678 234v-54l15-24 15 24v54Z" fill="#2c522a" fill-opacity=".46"/>
+                <path d="M693 156v-14" stroke="#2c522a" stroke-width="4" stroke-linecap="round"/>
+                <text x="693" y="352" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="14" letter-spacing="1" fill="#2c522a" fill-opacity=".7">CATHÉDRALE</text>
+                <text x="693" y="370" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="14" letter-spacing="1" fill="#2c522a" fill-opacity=".7">SAINTE-MARIE</text>
+              </svg>
+            </a>
+            <figcaption>Plan dessiné à la main, indicatif : il situe le bar sur la place, il n'est pas à l'échelle.</figcaption>
+          </figure>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ 5. L'ARDOISE ============ -->
-  <section class="section" id="ardoise" aria-labelledby="t-ardoise">
+  <!-- ═══ 4. PHOTOS ═══ -->
+  <section class="bloc" id="photos" aria-labelledby="t-photos">
     <div class="enveloppe">
-      <div class="tete">
-        <span class="oeil">ce qu'on boit</span>
-        <h2 class="titre" id="t-ardoise">L'ardoise</h2>
-      </div>
-
-      <div class="ardoise reveler">
-        <div class="ardoise__item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h9l-.8 16H7.8Z"/><path d="M16 8h2.4a1.6 1.6 0 0 1 1.6 1.6v3.8A1.6 1.6 0 0 1 18.4 15h-2.7"/><path d="M9.6 8v8M12.8 8v8"/></svg>
-          <h3>Bières</h3>
-          <p>À la pression et en bouteilles.</p>
-          <!-- PRIX: à remplir -->
-        </div>
-        <div class="ardoise__item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h10l-.7 5.6A4.4 4.4 0 0 1 12 12.6a4.4 4.4 0 0 1-4.3-4Z"/><path d="M12 12.6V19M8.6 19h6.8"/></svg>
-          <h3>Vins de la région</h3>
-          <p>Une sélection qui évolue au fil des arrivages.</p>
-          <!-- PRIX: à remplir -->
-        </div>
-        <div class="ardoise__item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16l-8 7.5Z"/><path d="M12 12.5V19M8.6 19h6.8"/><path d="M17 8.4l3-3.4"/></svg>
-          <h3>Apéritifs</h3>
-          <p>Les classiques, et des versions sans alcool.</p>
-          <!-- PRIX: à remplir -->
-        </div>
-        <div class="ardoise__item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13v6.5A4.5 4.5 0 0 1 12.5 19h-4A4.5 4.5 0 0 1 4 14.5Z"/><path d="M17 9.6h1.9A2.1 2.1 0 0 1 21 11.7a2.1 2.1 0 0 1-2.1 2.1H17"/><path d="M8 3.4v2M12 3.4v2"/></svg>
-          <h3>Cafés et softs</h3>
-          <p>Café le matin, sirops, limonades et sodas toute la journée.</p>
-          <!-- PRIX: à remplir -->
-        </div>
-      </div>
-
-      <p class="ardoise__note">La carte tourne au fil des saisons — demandez l'ardoise du jour.</p>
-    </div>
-  </section>
-
-  <!-- ============ 6. GALERIE ============ -->
-  <section class="section section--creme" id="galerie" aria-labelledby="t-galerie">
-    <div class="enveloppe">
-      <div class="tete">
-        <span class="oeil">le décor</span>
-        <h2 class="titre" id="t-galerie">En images</h2>
-      </div>
+      <p class="surtitre">Le décor</p>
+      <h2 class="titre" id="t-photos">En images</h2>
 
       <ul class="galerie reveler">
         <li>
@@ -274,12 +278,12 @@ h1{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-sp
                   data-legende="L'enseigne peinte, 8 place de la Halle"
                   data-alt="La façade du Bar des Archers au 8 place de la Halle : son enseigne peinte à la main et la porte grande ouverte sur la salle.">
             <picture>
-              <source type="image/avif" sizes="(min-width: 40em) 30rem, 92vw" srcset="assets/photos/galerie-facade-enseigne-400.avif 400w, assets/photos/galerie-facade-enseigne-530.avif 530w">
-              <source type="image/webp" sizes="(min-width: 40em) 30rem, 92vw" srcset="assets/photos/galerie-facade-enseigne-400.webp 400w, assets/photos/galerie-facade-enseigne-530.webp 530w">
+              <source type="image/avif" sizes="(min-width: 40em) 32rem, 92vw" srcset="assets/photos/galerie-facade-enseigne-400.avif 400w, assets/photos/galerie-facade-enseigne-530.avif 530w">
+              <source type="image/webp" sizes="(min-width: 40em) 32rem, 92vw" srcset="assets/photos/galerie-facade-enseigne-400.webp 400w, assets/photos/galerie-facade-enseigne-530.webp 530w">
               <img src="assets/photos/galerie-facade-enseigne-530.jpg" width="530" height="398" loading="lazy" decoding="async"
                    alt="La façade du Bar des Archers au 8 place de la Halle : son enseigne peinte à la main et la porte grande ouverte sur la salle.">
             </picture>
-            <span class="galerie__legende">L'enseigne peinte, 8 place de la Halle</span>
+            <span class="galerie__legende">L'enseigne peinte, place de la Halle</span>
           </button>
         </li>
         <li>
@@ -288,8 +292,8 @@ h1{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-sp
                   data-legende="Le tir du Papogay, peint sur les murs de la salle"
                   data-alt="Fresque peinte à l'intérieur du bar : un archer bande son arc vers l'oiseau planté au sommet du mât, le tir du Papogay.">
             <picture>
-              <source type="image/avif" sizes="(min-width: 40em) 30rem, 92vw" srcset="assets/photos/galerie-fresque-papogay-400.avif 400w, assets/photos/galerie-fresque-papogay-640.avif 640w">
-              <source type="image/webp" sizes="(min-width: 40em) 30rem, 92vw" srcset="assets/photos/galerie-fresque-papogay-400.webp 400w, assets/photos/galerie-fresque-papogay-640.webp 640w">
+              <source type="image/avif" sizes="(min-width: 40em) 32rem, 92vw" srcset="assets/photos/galerie-fresque-papogay-400.avif 400w, assets/photos/galerie-fresque-papogay-640.avif 640w">
+              <source type="image/webp" sizes="(min-width: 40em) 32rem, 92vw" srcset="assets/photos/galerie-fresque-papogay-400.webp 400w, assets/photos/galerie-fresque-papogay-640.webp 640w">
               <img src="assets/photos/galerie-fresque-papogay-640.jpg" width="640" height="480" loading="lazy" decoding="async"
                    alt="Fresque peinte à l'intérieur du bar : un archer bande son arc vers l'oiseau planté au sommet du mât, le tir du Papogay.">
             </picture>
@@ -302,8 +306,8 @@ h1{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-sp
                   data-legende="La terrasse, à l'abri sous la halle"
                   data-alt="Tables et chaises de la terrasse du bar, installées sur le sol de béton sous les arcades de la halle.">
             <picture>
-              <source type="image/avif" sizes="(min-width: 40em) 30rem, 92vw" srcset="assets/photos/galerie-terrasse-tables-400.avif 400w, assets/photos/galerie-terrasse-tables-660.avif 660w">
-              <source type="image/webp" sizes="(min-width: 40em) 30rem, 92vw" srcset="assets/photos/galerie-terrasse-tables-400.webp 400w, assets/photos/galerie-terrasse-tables-660.webp 660w">
+              <source type="image/avif" sizes="(min-width: 40em) 32rem, 92vw" srcset="assets/photos/galerie-terrasse-tables-400.avif 400w, assets/photos/galerie-terrasse-tables-660.avif 660w">
+              <source type="image/webp" sizes="(min-width: 40em) 32rem, 92vw" srcset="assets/photos/galerie-terrasse-tables-400.webp 400w, assets/photos/galerie-terrasse-tables-660.webp 660w">
               <img src="assets/photos/galerie-terrasse-tables-660.jpg" width="660" height="495" loading="lazy" decoding="async"
                    alt="Tables et chaises de la terrasse du bar, installées sur le sol de béton sous les arcades de la halle.">
             </picture>
@@ -316,8 +320,8 @@ h1{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-sp
                   data-legende="Le comptoir et le mur des fresques"
                   data-alt="L'intérieur du bar : le comptoir et, au-dessus, le mur de fresques et de maillots consacré aux sports du village, tir à l'arc et rugby.">
             <picture>
-              <source type="image/avif" sizes="(min-width: 40em) 30rem, 92vw" srcset="assets/photos/galerie-interieur-fresques-480.avif 480w, assets/photos/galerie-interieur-fresques-900.avif 900w">
-              <source type="image/webp" sizes="(min-width: 40em) 30rem, 92vw" srcset="assets/photos/galerie-interieur-fresques-480.webp 480w, assets/photos/galerie-interieur-fresques-900.webp 900w">
+              <source type="image/avif" sizes="(min-width: 40em) 32rem, 92vw" srcset="assets/photos/galerie-interieur-fresques-480.avif 480w, assets/photos/galerie-interieur-fresques-900.avif 900w">
+              <source type="image/webp" sizes="(min-width: 40em) 32rem, 92vw" srcset="assets/photos/galerie-interieur-fresques-480.webp 480w, assets/photos/galerie-interieur-fresques-900.webp 900w">
               <img src="assets/photos/galerie-interieur-fresques-900.jpg" width="900" height="506" loading="lazy" decoding="async"
                    alt="L'intérieur du bar : le comptoir et, au-dessus, le mur de fresques et de maillots consacré aux sports du village, tir à l'arc et rugby.">
             </picture>
@@ -328,223 +332,90 @@ h1{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-sp
     </div>
   </section>
 
-  <!-- ============ 7. LES RENDEZ-VOUS ============ -->
-  <section class="section section--vert sur-vert" id="rendez-vous" aria-labelledby="t-rdv">
+  <!-- ═══ 5. LE BAR + LES AVIS ═══ -->
+  <section class="bloc bloc--creme" id="bar" aria-labelledby="t-bar">
     <div class="enveloppe">
-      <div class="tete">
-        <span class="oeil">ça se passe ici</span>
-        <h2 class="titre" id="t-rdv">Les rendez-vous</h2>
-      </div>
+      <div class="bar">
+        <div class="bar__texte reveler">
+          <p class="surtitre">Depuis des décennies</p>
+          <h2 class="titre" id="t-bar">L'institution est revenue</h2>
+          <p>Le nom vient du Papogay, la fête de tir à l'arc du village, celle où l'on vise
+          l'oiseau planté au sommet du mât. Ce n'est pas un décor : c'est l'histoire de
+          Rieux-Volvestre, et elle est peinte sur les murs de la salle.</p>
+          <p>Le bar est au 8, place de la Halle. Pas à côté du centre : au centre, sous les
+          piliers de brique, à deux pas de la cathédrale Sainte-Marie. Il avait fermé.
+          Il a rouvert pour le Papogay, et il est ouvert tout l'été.</p>
+          <p class="bar__aparte">On vous attend au bar !</p>
+        </div>
 
-      <div class="rdv">
-        <ul class="rdv__liste reveler">
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5.5l11-2V16"/><circle cx="6.5" cy="18" r="2.6"/><circle cx="17.5" cy="16" r="2.6"/></svg>
-            <span><b>Les concerts</b>Le bar programme des soirées musique. L'affiche du mois paraît sur Instagram.</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21V6"/><path d="M12 6a2.5 2.5 0 1 1 0-.1"/><path d="M4 21h16"/><path d="m8 12 4-2.4 4 2.4"/></svg>
-            <span><b>Le Papogay</b>La fête de tir à l'arc du village, à l'origine du nom du bar — et de sa réouverture.</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
-            <span><b>L'été sur la place</b>Ouvert tout l'été, avec la terrasse sous la halle.</span>
-          </li>
-        </ul>
-
-        <div class="rdv__carte reveler">
-          <p><strong>Le calendrier vit sur Instagram.</strong></p>
-          <p>Le bar y publie l'affiche du mois et le programme de chaque semaine. C'est plus juste qu'un agenda figé sur un site : on préfère vous envoyer à la source plutôt que vous annoncer une date périmée.</p>
-          <a class="bouton" href="https://www.instagram.com/lebardesarchers/" target="_blank" rel="noopener">
-            <svg class="ico" aria-hidden="true"><use href="#i-insta"/></svg>
-            Voir les prochaines dates
-          </a>
+        <div class="reveler">
+          <p class="avis__note">
+            4,7 sur 5
+            <span class="etoiles" role="img" aria-label="Note moyenne de 4,7 sur 5">
+              <svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg>
+            </span>
+            <span>7 avis Google</span>
+          </p>
+          <ul class="avis">
+            <li><figure>
+              <blockquote>« Un bon moment partagé, dans un cadre très agréable, après une longue marche sur la Via Garona. »</blockquote>
+              <figcaption><b>Benjamin</b> <span>5/5 · avis Google</span></figcaption>
+            </figure></li>
+            <li><figure>
+              <blockquote>« Très beau café très cosy tenu par un couple jeune, dynamique et sympathique. Bonne musique, bons produits. »</blockquote>
+              <figcaption><b>Régis</b> <span>5/5 · avis Google</span></figcaption>
+            </figure></li>
+            <li><figure>
+              <blockquote>« Ambiance et convivialité dans ce bar au centre d'un super village ! »</blockquote>
+              <figcaption><b>TheHell</b> <span>5/5 · avis Google</span></figcaption>
+            </figure></li>
+            <li><figure>
+              <blockquote>« L'ambiance, la convivialité. »</blockquote>
+              <figcaption><b>Marc</b> <span>4/5 · avis Google</span></figcaption>
+            </figure></li>
+          </ul>
         </div>
       </div>
-
-      <!-- ============================================================
-           EMPLACEMENT ÉVÉNEMENT PONCTUEL
-           Pour annoncer une date précise : décommentez le bloc ci-dessous,
-           remplacez le texte, et déposez l'affiche à la place du fichier
-           assets/photos/affiche-evenement.png (même nom, mêmes proportions).
-           Pensez à la retirer une fois la date passée.
-
-      <div class="rdv__carte reveler" style="margin-top:2rem">
-        <p><b>Prochaine date</b></p>
-        <h3>Nom de l'événement</h3>
-        <p>Samedi 00 mois — style de musique</p>
-        <img src="assets/photos/affiche-evenement.png" width="1468" height="850" loading="lazy" decoding="async"
-             alt="Affiche de la soirée : nom, date et style de musique.">
-      </div>
-           ============================================================ -->
     </div>
   </section>
 
-  <!-- ============ 8. LES AVIS ============ -->
-  <section class="section section--creme" id="avis" aria-labelledby="t-avis">
-    <div class="enveloppe">
-      <div class="tete">
-        <span class="oeil">on en dit ça</span>
-        <h2 class="titre" id="t-avis">Ils y sont passés</h2>
-      </div>
-      <p class="avis__global">4,7 sur 5, sur 7 avis Google.</p>
-
-      <ul class="avis reveler">
-        <li>
-          <figure>
-            <blockquote>« Un bon moment partagé, dans un cadre très agréable, après une longue marche sur la Via Garona. »</blockquote>
-            <figcaption>
-              <b>Benjamin</b>
-              <span class="etoiles" role="img" aria-label="5 étoiles sur 5">
-                <svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg>
-              </span>
-              <span class="avis__source">avis Google</span>
-            </figcaption>
-          </figure>
-        </li>
-        <li>
-          <figure>
-            <blockquote>« Très beau café très cosy tenu par un couple jeune, dynamique et sympathique. Bonne musique, bons produits. »</blockquote>
-            <figcaption>
-              <b>Régis</b>
-              <span class="etoiles" role="img" aria-label="5 étoiles sur 5">
-                <svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg>
-              </span>
-              <span class="avis__source">avis Google</span>
-            </figcaption>
-          </figure>
-        </li>
-        <li>
-          <figure>
-            <blockquote>« Ambiance et convivialité dans ce bar au centre d'un super village ! »</blockquote>
-            <figcaption>
-              <b>TheHell</b>
-              <span class="etoiles" role="img" aria-label="5 étoiles sur 5">
-                <svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg>
-              </span>
-              <span class="avis__source">avis Google</span>
-            </figcaption>
-          </figure>
-        </li>
-        <li>
-          <figure>
-            <blockquote>« L'ambiance, la convivialité. »</blockquote>
-            <figcaption>
-              <b>Marc</b>
-              <span class="etoiles" role="img" aria-label="4 étoiles sur 5">
-                <svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg><svg class="ico" aria-hidden="true"><use href="#i-etoile"/></svg>
-              </span>
-              <span class="avis__source">avis Google</span>
-            </figcaption>
-          </figure>
-        </li>
-      </ul>
+  <!-- ═══ 6. RENDEZ-VOUS — une bande, une phrase, un bouton ═══ -->
+  <section class="rdv bloc--vert sur-vert" id="rendez-vous" aria-labelledby="t-rdv">
+    <div class="enveloppe rdv__interieur">
+      <h2 id="t-rdv">Concerts &amp; rendez-vous</h2>
+      <p>Le bar programme des soirées musique et suit la vie du village. Les dates ne sont
+      pas figées ici : elles vivent sur Instagram, où paraissent l'affiche du mois et le
+      programme de la semaine.</p>
+      <a class="bouton" href="https://www.instagram.com/lebardesarchers/" target="_blank" rel="noopener">
+        <svg class="ico" aria-hidden="true"><use href="#i-insta"/></svg> Voir les dates
+      </a>
     </div>
-  </section>
 
-  <!-- ============ 9. VENIR ============ -->
-  <section class="section" id="venir" aria-labelledby="t-venir">
-    <div class="enveloppe">
-      <div class="tete">
-        <span class="oeil">c'est tout droit</span>
-        <h2 class="titre" id="t-venir">Venir au bar</h2>
-      </div>
+    <!-- ══════════════════════════════════════════════════════════════════
+         EMPLACEMENT ÉVÉNEMENT PONCTUEL
+         Pour annoncer une date précise : décommentez, remplacez le texte, et
+         déposez l'affiche sous le nom assets/photos/affiche-evenement.png.
+         Recommentez une fois la date passée — une affiche périmée fait plus
+         de mal qu'une absence d'affiche.
 
-      <div class="venir">
-        <div class="venir__infos reveler">
-          <div class="venir__bloc">
-            <h3>L'adresse</h3>
-            <address>
-              Le Bar des Archers<br>
-              8 place de la Halle<br>
-              31310 Rieux-Volvestre, Haute-Garonne
-            </address>
-          </div>
-          <a class="bouton" href="https://www.google.com/maps/dir/?api=1&amp;destination=8%20place%20de%20la%20Halle%2C%2031310%20Rieux-Volvestre" target="_blank" rel="noopener">
-            <svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>
-            Lancer l'itinéraire
-          </a>
-          <div class="venir__bloc">
-            <h3>Se repérer</h3>
-            <p>Le bar est sur la place de la Halle, au centre exact du village. Repère le plus simple : la halle elle-même, avec ses piliers de brique. On stationne sur la place.</p>
-          </div>
-          <div class="venir__bloc">
-            <h3>Sur la Via Garona</h3>
-            <p>Rieux-Volvestre est une étape de la Via Garona, l'itinéraire de randonnée qui relie Toulouse à Saint-Bertrand-de-Comminges. Le bar est sur le chemin.</p>
-          </div>
-          <div class="venir__bloc">
-            <h3>Les horaires</h3>
-            <p><a href="#horaires">Voir le tableau complet</a> — et le programme de la semaine <a href="https://www.instagram.com/lebardesarchers/" target="_blank" rel="noopener">sur Instagram</a>.</p>
-          </div>
-        </div>
-
-        <figure class="plan reveler">
-          <a class="plan__lien" href="https://www.google.com/maps/dir/?api=1&amp;destination=8%20place%20de%20la%20Halle%2C%2031310%20Rieux-Volvestre" target="_blank" rel="noopener"
-             aria-label="Ouvrir l'itinéraire vers le Bar des Archers, 8 place de la Halle à Rieux-Volvestre, dans Google Maps (nouvel onglet)">
-            <svg viewBox="0 0 800 560" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-              <rect width="800" height="560" fill="#fff9d7"/>
-              <!-- la boucle de l'Arize -->
-              <path d="M-20 470 C 120 430 180 520 320 528 C 470 536 600 500 820 520" fill="none" stroke="#2c522a" stroke-opacity=".28" stroke-width="26" stroke-linecap="round"/>
-              <text x="120" y="512" font-family="Caveat, cursive" font-size="30" fill="#2c522a" fill-opacity=".75">L'Arize</text>
-              <!-- îlots bâtis -->
-              <g fill="#2c522a" fill-opacity=".12">
-                <rect x="40" y="60" width="180" height="120" rx="10"/>
-                <rect x="40" y="230" width="120" height="150" rx="10"/>
-                <rect x="600" y="60" width="170" height="110" rx="10"/>
-                <rect x="640" y="230" width="130" height="120" rx="10"/>
-              </g>
-              <!-- la place -->
-              <rect x="190" y="90" width="400" height="330" rx="18" fill="#2c522a" fill-opacity=".07" stroke="#2c522a" stroke-opacity=".35" stroke-width="3" stroke-dasharray="10 9"/>
-              <text x="215" y="128" font-family="Montserrat, sans-serif" font-weight="800" font-size="19" letter-spacing="1.5" fill="#2c522a" fill-opacity=".7">PLACE DE LA HALLE</text>
-              <!-- la halle et ses arcades -->
-              <g>
-                <rect x="270" y="185" width="245" height="150" rx="8" fill="#2c522a"/>
-                <g fill="#fff9d7">
-                  <path d="M296 335v-58a22 22 0 0 1 44 0v58Z"/>
-                  <path d="M370 335v-58a22 22 0 0 1 44 0v58Z"/>
-                  <path d="M444 335v-58a22 22 0 0 1 44 0v58Z"/>
-                </g>
-                <text x="392" y="169" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="21" letter-spacing="2" fill="#2c522a">LA HALLE</text>
-              </g>
-              <!-- le bar -->
-              <g>
-                <path d="M188 232v-38a34 34 0 0 1 68 0v38Z" fill="#ffdc59" stroke="#2c522a" stroke-width="5"/>
-                <circle cx="222" cy="200" r="9" fill="#2c522a"/>
-                <text x="164" y="268" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="19" fill="#2c522a">LE BAR</text>
-                <text x="164" y="292" text-anchor="middle" font-family="Caveat, cursive" font-size="27" fill="#2c522a">8, place de la Halle</text>
-              </g>
-              <!-- la cathédrale et son clocher octogonal -->
-              <g>
-                <rect x="612" y="380" width="150" height="96" rx="8" fill="#2c522a" fill-opacity=".22"/>
-                <path d="M672 380v-58l16-26 16 26v58Z" fill="#2c522a" fill-opacity=".5"/>
-                <path d="M688 296v-16" stroke="#2c522a" stroke-width="4" stroke-linecap="round"/>
-                <text x="687" y="512" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="15" letter-spacing="1" fill="#2c522a" fill-opacity=".75">CATHÉDRALE</text>
-                <text x="687" y="532" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="15" letter-spacing="1" fill="#2c522a" fill-opacity=".75">SAINTE-MARIE</text>
-              </g>
-              <!-- Une rose des vents figurait ici. Retirée : sur un plan explicitement
-                   « pas à l'échelle », une flèche nord affirme une orientation que
-                   personne n'a vérifiée. Décor en trop, et petit mensonge en prime. -->
-            </svg>
-          </a>
-          <figcaption>Plan dessiné à la main, indicatif : il situe le bar sur la place, il n'est pas à l'échelle. Touchez-le pour ouvrir l'itinéraire.</figcaption>
-        </figure>
-      </div>
+    <div class="enveloppe" style="margin-top:2rem">
+      <p class="surtitre">Prochaine date</p>
+      <h3>Nom de l'événement</h3>
+      <p>Samedi 00 mois — style de musique</p>
+      <img src="assets/photos/affiche-evenement.png" width="1468" height="850" loading="lazy" decoding="async"
+           alt="Affiche de la soirée : nom, date et style de musique.">
     </div>
+         ══════════════════════════════════════════════════════════════════ -->
   </section>
 </main>
 
-<!-- ============ 10. PIED DE PAGE ============ -->
+<!-- ═══ PIED ═══ -->
 <footer class="pied">
   <div class="enveloppe">
     <div class="pied__haut">
       <div class="pied__marque">
-        <img src="assets/photos/logo-rond-180.png" width="180" height="180" loading="lazy" decoding="async"
-             alt="Logo du Bar des Archers.">
-        <address>
-          <strong>Le Bar des Archers</strong><br>
-          8 place de la Halle<br>
-          31310 Rieux-Volvestre
-        </address>
+        <img src="assets/photos/logo-rond-180.png" width="180" height="180" loading="lazy" decoding="async" alt="Logo du Bar des Archers.">
+        <address><strong>Le Bar des Archers</strong><br>8 place de la Halle<br>31310 Rieux-Volvestre</address>
       </div>
       <div>
         <h2>Nous suivre</h2>
@@ -552,19 +423,17 @@ h1{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-sp
           <li><a href="https://www.instagram.com/lebardesarchers/" target="_blank" rel="noopener">Instagram — @lebardesarchers</a></li>
           <li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=8%20place%20de%20la%20Halle%2C%2031310%20Rieux-Volvestre" target="_blank" rel="noopener">Itinéraire Google Maps</a></li>
         </ul>
-        <p>Instagram est le canal de contact du bar : les horaires de la semaine et les dates de concerts y sont publiés.</p>
       </div>
       <div>
         <h2>Le site</h2>
         <ul>
-          <li><a href="#horaires">Horaires</a></li>
-          <li><a href="#galerie">Photos</a></li>
-          <li><a href="#venir">Venir</a></li>
+          <li><a href="#carte">La carte</a></li>
+          <li><a href="#essentiel">Horaires &amp; adresse</a></li>
+          <li><a href="#photos">Photos</a></li>
           <li><a href="mentions-legales.html">Mentions légales</a></li>
         </ul>
       </div>
     </div>
-
     <div class="pied__bas">
       <p class="evin">L'abus d'alcool est dangereux pour la santé, à consommer avec modération.</p>
       <p class="pied__credit">Site réalisé par <a href="#">Maxime Crtsz</a>. Aucun cookie, aucun traceur, aucune requête vers un service tiers.</p>
@@ -572,43 +441,38 @@ h1{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-sp
   </div>
 </footer>
 
-<!-- Barre d'actions permanente (mobile) -->
 <div class="actions" id="actions" data-cache role="group" aria-label="Actions rapides">
   <a class="bouton" href="https://www.google.com/maps/dir/?api=1&amp;destination=8%20place%20de%20la%20Halle%2C%2031310%20Rieux-Volvestre" target="_blank" rel="noopener">
-    <svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>
-    Itinéraire
+    <svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Itinéraire
   </a>
   <a class="bouton bouton--clair" href="https://www.instagram.com/lebardesarchers/" target="_blank" rel="noopener">
-    <svg class="ico" aria-hidden="true"><use href="#i-insta"/></svg>
-    Instagram
+    <svg class="ico" aria-hidden="true"><use href="#i-insta"/></svg> Instagram
   </a>
 </div>
 
-<!-- Visionneuse de la galerie -->
 <dialog class="lightbox" id="lightbox" aria-label="Photo en grand">
   <figure class="lightbox__cadre">
     <img id="lightbox-img" alt="" width="900" height="600">
     <button type="button" class="rond lightbox__fermer" id="lightbox-fermer" aria-label="Fermer la photo">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+      <svg class="ico" aria-hidden="true"><use href="#i-croix"/></svg>
     </button>
     <figcaption id="lightbox-legende"></figcaption>
     <div class="lightbox__nav">
       <button type="button" class="rond" id="lightbox-prec" aria-label="Photo précédente">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 5-7 7 7 7"/></svg>
+        <svg class="ico" aria-hidden="true"><use href="#i-gauche"/></svg>
       </button>
       <span class="lightbox__compteur" id="lightbox-compteur"></span>
       <button type="button" class="rond" id="lightbox-suiv" aria-label="Photo suivante">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m10 5 7 7-7 7"/></svg>
+        <svg class="ico" aria-hidden="true"><use href="#i-droite"/></svg>
       </button>
     </div>
   </figure>
 </dialog>
 
-<!-- ============================================================
+<!-- ══════════════════════════════════════════════════════════════════════
      MIROIR HORAIRES (2/2) — doit refléter data/horaires.json.
-     Google lit ces horaires : pensez à les mettre à jour en même
-     temps que le JSON (voir README.md).
-     ============================================================ -->
+     C'est ce que Google lit : à mettre à jour en même temps que le JSON.
+     ══════════════════════════════════════════════════════════════════════ -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
