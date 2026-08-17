@@ -50,21 +50,27 @@
     return semaine;
   }
 
-  /* Instant courant à Paris, quelle que soit l'heure de l'appareil. */
+  /* Instant courant à Paris, quelle que soit l'heure de l'appareil.
+     Si Intl manque (navigateur très ancien), on retombe sur l'heure locale :
+     les deux chemins produisent les mêmes champs, la suite est commune. */
   function maintenantParis() {
+    var d = new Date(), p = {};
     try {
-      var fmt = new Intl.DateTimeFormat("en-CA", {
+      new Intl.DateTimeFormat("en-CA", {
         timeZone: "Europe/Paris", year: "numeric", month: "2-digit",
         day: "2-digit", hour: "2-digit", minute: "2-digit", hour12: false
-      });
-      var p = {};
-      fmt.formatToParts(new Date()).forEach(function (o) { p[o.type] = o.value; });
-      var jsJour = new Date(Date.UTC(+p.year, +p.month - 1, +p.day)).getUTCDay();
-      return { iso: jsJour === 0 ? 7 : jsJour, min: (+p.hour % 24) * 60 + (+p.minute) };
+      }).formatToParts(d).forEach(function (o) { p[o.type] = o.value; });
     } catch (e) {
-      var d = new Date();
-      return { iso: d.getDay() === 0 ? 7 : d.getDay(), min: d.getHours() * 60 + d.getMinutes() };
+      var z = function (n) { return (n < 10 ? "0" : "") + n; };
+      p = { year: d.getFullYear(), month: z(d.getMonth() + 1), day: z(d.getDate()),
+            hour: z(d.getHours()), minute: z(d.getMinutes()) };
     }
+    var jsJour = new Date(Date.UTC(+p.year, +p.month - 1, +p.day)).getUTCDay();
+    return {
+      iso: jsJour === 0 ? 7 : jsJour,
+      min: (+p.hour % 24) * 60 + (+p.minute),
+      date: p.year + "-" + p.month + "-" + p.day
+    };
   }
 
   var veille = function (iso) { return iso === 1 ? 7 : iso - 1; };
@@ -234,13 +240,29 @@
     }, { threshold: [0, 0.35, 1] }).observe(hero);
   }
 
-  /* ================= 5. Démarrage ================= */
+  /* ================= 5. Prochaines dates ================= */
+
+  /* data-fin="AAAA-MM-JJ" : le format ISO se compare comme du texte, donc une date
+     à venir est >= au jour courant. Le bloc part masqué en CSS et n'apparaît que
+     s'il reste une ligne : une date périmée est impossible (détail dans index.html). */
+  function demarrerAgenda() {
+    var bloc = $("#agenda");
+    if (!bloc) return;
+    var jour = maintenantParis().date, restantes = 0;
+    $$("li[data-fin]", bloc).forEach(function (li) {
+      if (li.getAttribute("data-fin") >= jour) restantes++; else li.remove();
+    });
+    if (restantes) bloc.setAttribute("data-actif", "");
+  }
+
+  /* ================= 6. Démarrage ================= */
 
   function demarrer() {
     demarrerHoraires();
     demarrerGalerie();
     demarrerRevelations();
     demarrerBarre();
+    demarrerAgenda();
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", demarrer);

@@ -41,7 +41,9 @@ paires.push(
   ['détail des lignes de carte (85 %)', 'encre 0,85', 'papier', melange(C.encre, 0.85, C.papier), C.papier, 4.5],
   ['mentions et repères (90 %)', 'encre 0,90', 'creme', melange(C.encre, 0.9, C.creme), C.creme, 4.5],
   ['attribution des avis (90 %)', 'encre 0,90', 'creme', melange(C.encre, 0.9, C.creme), C.creme, 4.5],
-  ['crédit du pied (82 %)', 'creme 0,82', 'encre', melange(C.creme, 0.82, C.encre), C.encre, 4.5]
+  ['crédit du pied (82 %)', 'creme 0,82', 'encre', melange(C.creme, 0.82, C.encre), C.encre, 4.5],
+  /* bloc « Prochaines dates », posé sur la bande verte */
+  ['renvoi Instagram des dates (90 %)', 'creme 0,90', 'vert', melange(C.creme, 0.9, C.vert), C.vert, 4.5]
 );
 
 let echecs = 0;

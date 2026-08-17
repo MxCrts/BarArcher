@@ -485,6 +485,27 @@ html:not(.js) .actions[data-cache] { transform: none; }
 .rdv h2 { font-size: clamp(1.4rem, 1.1rem + 1.5vw, 2rem); color: var(--creme); }
 .rdv p { margin: 0; max-width: 46ch; }
 
+/* Prochaines dates : masquées par défaut, et affichées par le script uniquement
+   si elles sont encore à venir. Une date périmée est donc impossible — y compris
+   sans JavaScript, où le bloc reste simplement invisible. */
+.agenda { display: none; margin-top: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem); }
+.js .agenda[data-actif] { display: block; }
+.agenda .surtitre { margin: 0 0 0.6rem; }
+.agenda ul { list-style: none; margin: 0; padding: 0; }
+.agenda li {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.2rem 0.85rem;
+  padding: 0.7rem 0;
+  border-top: 1px solid rgb(255 249 215 / 0.25);
+}
+.agenda li:last-child { border-bottom: 1px solid rgb(255 249 215 / 0.25); }
+.agenda b {
+  font-family: var(--display); font-size: 0.8rem;
+  letter-spacing: 0.02em; text-transform: uppercase;
+  color: var(--jaune);
+}
+.agenda li span { font-family: var(--accent); font-size: 1.3rem; line-height: 1.15; }
+.agenda .mention { margin: 0.9rem 0 0; }
+
 /* ---------- 17. Pied ---------- */
 .pied {
   background: var(--encre); color: var(--creme);

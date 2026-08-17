@@ -106,6 +106,21 @@ if (!/class="evitement"/.test(index)) ko('pas de lien d\'évitement');
 for (const m of index.matchAll(/<button\b[^>]*>/g))
   if (!/aria-label/.test(m[0]) && !/class="galerie__bouton"/.test(m[0])) info('bouton sans aria-label (vérifier le texte interne) : ' + m[0].slice(0, 60));
 
+/* ---- 10. prochaines dates : format strict, et péremption signalée ----
+   La comparaison qui fait expirer une date est textuelle (AAAA-MM-JJ). Un format
+   approximatif passerait inaperçu à l'écran tout en cassant la logique : c'est
+   donc une erreur, pas un avis. Les dates passées, elles, sont normales. */
+const dates = [...index.replace(/<!--[\s\S]*?-->/g, '').matchAll(/data-fin="([^"]*)"/g)].map(m => m[1]);
+const aujourdhui = new Date().toLocaleDateString('en-CA', { timeZone: 'Europe/Paris' });
+for (const d of dates)
+  if (!/^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/.test(d))
+    ko(`data-fin="${d}" n'est pas au format AAAA-MM-JJ : la date n'expirerait pas correctement`);
+if (dates.length) {
+  const avenir = dates.filter(d => d >= aujourdhui);
+  info(`prochaines dates : ${avenir.length} à venir sur ${dates.length} (les passées se retirent seules)`);
+  if (!avenir.length) info('AVIS : aucune date à venir — le bloc « Prochaines dates » ne s\'affiche plus.');
+}
+
 console.log('\n===== AUDIT =====');
 console.log(pb.length ? pb.join('\n') : 'Aucun problème détecté.');
 process.exit(pb.length ? 1 : 0);
