@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lebardesarchers.fr/sitemap.xml
+Sitemap: https://mxcrts.github.io/BarArcher/sitemap.xml
