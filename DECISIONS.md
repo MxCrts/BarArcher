@@ -101,10 +101,46 @@ tout `100vw` et donc tout débordement horizontal.
 ## Contenu et droit
 
 ### Rien d'inventé
-Aucun téléphone, aucun prix, aucune marque de bière, aucun nom de patron, aucune date
-d'événement. L'ardoise nomme des catégories (« Bières », « Vins de la région »,
+Aucun téléphone, aucun prix, aucune marque de bière, aucun nom de patron. Les seules
+dates affichées sont **relevées sur l'affiche du mois du bar** et s'effacent seules
+(voir « Les dates » plus bas). L'ardoise nomme des catégories (« Bières », « Vins de la région »,
 « Apéritifs », « Cafés et softs ») avec des formulations qui ne s'engagent sur rien de
 vérifiable, et chaque bloc porte un commentaire `<!-- PRIX: à remplir -->`.
+
+### Les dates : affichées, mais incapables de périmer
+La règle d'origine était « aucune date en dur, elles seraient périmées en quelques
+semaines ». Le raisonnement était juste, la conclusion trop large : elle privait la page
+de la seule information qui fait *sortir* quelqu'un de chez lui un vendredi soir.
+
+Le compromis retenu supprime le risque au lieu d'éviter le sujet. Chaque ligne porte
+`data-fin="AAAA-MM-JJ"`, et :
+
+- le bloc est **masqué par le CSS au départ**, et affiché par le script uniquement s'il
+  reste au moins une date à venir. Sans JavaScript, il ne s'affiche pas du tout ;
+- la comparaison est textuelle (le format ISO se trie comme du texte), et l'heure lue
+  est celle de Paris, comme pour le badge ;
+- une ligne dépassée est retirée du DOM. Le lendemain de la soirée, elle a disparu,
+  sans que personne n'intervienne.
+
+Autrement dit : le pire cas n'est pas une date fausse, c'est un bloc absent — exactement
+l'état d'avant. Les deux dates en place (21 et 22 août) viennent de l'affiche du mois
+fournie par le bar, dont les jours de semaine ont été vérifiés contre le calendrier 2026.
+
+**Pas de `Event` dans le JSON-LD**, en revanche : Google garde en cache ce qu'il a lu,
+et une soirée passée pourrait continuer à s'afficher dans les résultats pendant des
+semaines — là, le script ne peut plus rien. Le gain en référencement ne valait pas ce
+risque-là.
+
+**L'affiche du mois n'est pas publiée non plus** : les deux PNG fournis pèsent ~700 Ko
+chacun, soit cinq fois le budget total de la page, et il faudrait les reconvertir à
+chaque mois. La procédure est documentée dans `README.md` pour le jour où le bar le
+souhaite.
+
+### « Restauration sur place »
+C'est écrit en bas de l'affiche du mois : c'est donc un fait du bar, pas une supposition,
+et il est ajouté en tête de la carte. Ce que ça couvre (planches, tapas, plats ?) reste
+inconnu — la phrase se limite donc à trois mots et ne promet aucun plat. La question est
+posée dans `TODO-CLIENT.md`.
 
 ### Loi Évin
 Le message sanitaire figure dans le pied de page de la page d'accueil, des mentions
@@ -124,12 +160,40 @@ contient que les chiffres réels (4,7 sur 7 avis).
 Le brief le demandait, mais je n'ai aucune donnée de prix. Écrire `€€` aurait été
 inventer. Le champ est laissé de côté et signalé dans `TODO-CLIENT.md`.
 
+### La géométrie du plan, vérifiée après coup
+Le plan était annoncé comme « non vérifié ». Il l'est maintenant, contre OpenStreetMap :
+
+| élément | relevé | sur le plan |
+|---|---|---|
+| place de la Halle | 43,25770 / 1,20132 | le cadre central |
+| le bar (8 place de la Halle) | ~26 m à l'**ouest** du centre de la place | dessiné à gauche ✔ |
+| cathédrale Sainte-Marie | 43,25840 / 1,20321, soit ~170 m à l'**est-nord-est** | dessinée à droite ✔ |
+| l'Arize | au plus près ~130 m à l'**ouest** et ~170 m au **sud** | bande en bas ✔ |
+
+Les positions relatives sont donc justes, en lecture nord-en-haut. Le seul écart : la
+cathédrale est légèrement au nord de la place alors qu'elle est dessinée un peu plus bas
+que le centre. Le dessin ne porte aucune rose des vents et se dit « pas à l'échelle » —
+il n'affirme donc pas d'orientation, et l'écart n'est pas corrigé : bouger le bloc ferait
+collision avec le bâti décoratif du coin, pour rattraper une précision que le dessin ne
+revendique pas.
+
+Les coordonnées du JSON-LD, fournies par le bar (`43.2578 / 1.2010`), tombent à ~20 m du
+relevé OpenStreetMap de la place : elles sont bonnes.
+
+Le nom retenu, **cathédrale Sainte-Marie**, est celui qu'emploient Haute-Garonne Tourisme
+et la fiche Monument historique. Son intitulé officiel est « cathédrale de la
+Nativité-de-Marie » ; le nom d'usage est plus juste pour un site de bar de village.
+
 ### Pas de rue nommée sur le plan
-Le plan devait porter deux ou trois noms de rues. Je ne connais avec certitude que
-« place de la Halle ». Inventer des noms de rues dans un village de 2 500 habitants,
-c'est se faire prendre en une seconde par le premier voisin qui visite le site. Le plan
-ne nomme donc que ce qui est vérifié : la place, la halle, le bar et sa cathédrale.
-La `<figcaption>` annonce « plan indicatif, pas à l'échelle ».
+Le plan devait porter deux ou trois noms de rues. Inventer des noms de rues dans un
+village de 2 500 habitants, c'est se faire prendre en une seconde par le premier voisin
+qui visite le site. Le plan ne nomme donc que ce qui est vérifié : la place, la halle,
+le bar et sa cathédrale. La `<figcaption>` annonce « plan indicatif, pas à l'échelle ».
+
+Depuis la vérification ci-dessus, un second nom est disponible si le bar le souhaite :
+la cathédrale donne sur la **place Monseigneur de Lastic**. Il n'est pas ajouté pour
+l'instant — le dessin est volontairement nu, et un repère nommé de plus n'aide personne
+à trouver un bar situé sur la place voisine.
 
 ### La rose des vents en moins
 Elle figurait sur le plan. Retirée à la relecture : sur un dessin explicitement « pas à
@@ -154,7 +218,8 @@ si elles divergent. C'est le compromis le moins mauvais, et il est vérifiable.
 
 ### Horaires : minuit et fuseau
 Un créneau dont la fermeture est **inférieure ou égale** à l'ouverture passe minuit.
-`16:00 → 00:00` ferme donc à minuit pile : à 00h30, le bar est fermé. Si le bar passe
+`16:00 → 00:00` ferme donc à minuit pile : à 00h30, le bar est fermé. **Confirmé par le
+bar** : vendredi et samedi, c'est bien minuit pile, pas 1h ni 2h. Si le bar passe
 un jour à `02:00`, la logique gère le débordement sur le lendemain sans rien changer
 d'autre. L'heure est toujours lue à **Europe/Paris** via `Intl`, jamais l'horloge de
 l'appareil — un visiteur en vacances à l'étranger voit le bon statut.
@@ -178,10 +243,23 @@ Seule exception à la règle des chemins relatifs : une page 404 peut être serv
 n'importe quelle profondeur d'URL. Elle ne fonctionne donc pas en double-clic, ce qui
 est sans conséquence.
 
-### Domaine provisoire
-`lebardesarchers.fr` est un **réglage**, pas un fait sur le bar : il faut le remplacer
-partout avant mise en ligne (procédure dans `README.md`). Il apparaît dans le canonical,
-l'Open Graph, le JSON-LD, `robots.txt` et `sitemap.xml`.
+### Domaine : l'URL réelle plutôt qu'un domaine imaginaire
+Le site déclarait partout `lebardesarchers.fr`, un domaine provisoire qui n'existe pas.
+Or le site est **déjà servi** sur GitHub Pages, à `https://mxcrts.github.io/BarArcher/`.
+Un canonical, un `og:url` et un sitemap qui pointent vers une adresse morte, c'est pire
+que rien : Google ne peut pas indexer, et un partage sur les réseaux ne montre aucune
+image. Les 11 occurrences pointent donc maintenant vers l'URL qui répond vraiment.
+
+Ce n'est pas un renoncement au nom de domaine : le jour où le bar en prend un, c'est un
+`sed` (procédure dans `README.md`). Mais entre-temps le référencement fonctionne.
+
+### Hébergeur des mentions légales : renseigné
+L'article 6 de la LCEN oblige à nommer l'hébergeur. Comme le site est sur GitHub Pages,
+c'est **GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107**, un fait
+public et vérifiable — pas une information que le bar doit fournir. Les trois lignes sont
+donc remplies, avec un rappel qu'elles changent si l'hébergement déménage.
+Les champs qui restent en `[À COMPLÉTER]` sont ceux que seul le bar détient (SIRET,
+licence de débit de boissons, directeur de la publication, médiateur).
 
 ### Pas de menu mobile
 La page est courte et linéaire. Un tiroir hamburger aurait ajouté du JavaScript, un piège
@@ -189,7 +267,31 @@ de focus de plus et une cible à ne pas rater, pour naviguer dans six sections q
 atteint en glissant le pouce. En mobile, seule la barre d'actions reste — deux boutons,
 jamais trois — et elle s'efface tant que le hero est à l'écran.
 
-### Budget tenu
-HTML + CSS + JS + polices = **144 Ko** sur 150 autorisés, dont 68 Ko de polices.
-JavaScript : **9,7 Ko** non minifié sur 10 autorisés. Les icônes répétées (étoiles,
-épingle, Instagram) sont factorisées en `<symbol>`/`<use>`, ce qui a rendu 4 Ko d'HTML.
+### Budget : tenu globalement, dépassé de 2 % sur le JavaScript
+Mesure en octets bruts de ce que charge la page d'accueil (hors images) :
+
+| fichier | octets |
+|---|---|
+| `index.html` | 35 484 |
+| `assets/css/style.css` | 22 044 |
+| `assets/js/app.js` | 10 429 |
+| les deux `.woff2` | 68 172 |
+| **total** | **136 129 — soit 133 Ko sur 150 autorisés** |
+
+Les icônes répétées (étoiles, épingle, Instagram) sont factorisées en
+`<symbol>`/`<use>`, ce qui a rendu 4 Ko d'HTML.
+
+**Le JavaScript, lui, est à 10 429 octets, soit 10,2 Ko pour 10 autorisés.** Le
+dépassement vient des dates auto-expirantes (+970 octets environ, code et commentaires).
+C'est signalé plutôt que maquillé, et le choix est réversible en une suppression : sans
+cette fonction, le fichier retombe à 9,5 Ko. Deux éléments pour trancher :
+
+- non minifié et servi en gzip, ce fichier fait environ **3 Ko sur le réseau** — l'esprit
+  du plafond (une page qui s'affiche vite sur un téléphone au centre d'un village) est
+  largement respecté ;
+- les 970 octets achètent la seule information qui fait sortir quelqu'un de chez lui,
+  avec la garantie qu'elle ne peut pas devenir fausse.
+
+Ce qui a été refusé pour rester près du plafond : minifier (le bar doit pouvoir lire et
+modifier le fichier), et supprimer le repli sans `Intl` du calcul d'heure — il fait 250
+octets et protège l'exactitude du badge sur les vieux navigateurs.

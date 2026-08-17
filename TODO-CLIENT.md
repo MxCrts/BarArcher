@@ -1,32 +1,76 @@
 # À faire confirmer par le bar
 
-Liste de tout ce que j'ai laissé en attente plutôt que de l'inventer.
-Les trois premiers points bloquent la mise en ligne, le reste peut suivre.
+Liste de tout ce qui a été laissé en attente plutôt qu'inventé.
+Il ne reste **qu'un seul point vraiment bloquant** : les mentions légales.
 
 ---
 
-## Bloquant avant publication
+## Le message à envoyer au bar
+
+Tout ce qui manque tient en un message. À copier-coller tel quel :
+
+> Bonjour, le site est prêt et en ligne. Il me manque des informations que vous
+> seuls avez. Deux minutes de réponse suffisent :
+>
+> **Obligatoire pour la loi (mentions légales)**
+> 1. Le nom exact de la société, sa forme (SARL, SAS, entreprise individuelle…)
+>    et son numéro **SIRET**
+> 2. La **catégorie et le numéro de votre licence de débit de boissons**
+> 3. Le nom et le prénom de la personne responsable du site
+> 4. Une adresse e-mail de contact, et un téléphone (ou « non communiqué »)
+> 5. Le **médiateur de la consommation** auquel vous adhérez (c'est obligatoire
+>    pour un commerce qui reçoit des clients — si vous n'en avez pas encore, il
+>    faut y adhérer, ça coûte quelques dizaines d'euros par an)
+>
+> **Ce qui ferait le plus de différence sur le site**
+> 6. **Six prix indicatifs** : demi pression, pinte, verre de vin, apéritif,
+>    café, soft. Même approximatifs (« à partir de 3 € ») c'est ce que les gens
+>    cherchent en premier après les horaires
+> 7. La **restauration sur place**, c'est quoi exactement ? (planches, tapas,
+>    plats du jour ?) C'est annoncé sur votre affiche et c'est un vrai argument
+> 8. Une fourchette de prix générale : plutôt « moins de 10 € » ou « 10–20 € » ?
+> 9. Des **bières locales** à mettre en avant ?
+> 10. Avez-vous un **numéro de téléphone** que je peux publier ?
+> 11. Les horaires du tableau sont-ils bons hors été, et jusqu'à quand valent-ils ?
+>
+> **Si vous en avez sous la main**
+> 12. Trois ou quatre photos de plus, prises en fin de journée : la salle en
+>     service, la terrasse occupée, un plan large de la place.
+
+---
+
+## Bloquant avant de communiquer sur le site
 
 ### 1. Mentions légales — les champs `[À COMPLÉTER]`
-Dans `mentions-legales.html`, surlignés en jaune sur la page :
+Dans `mentions-legales.html`, surlignés en jaune sur la page. Il en reste **onze**,
+tous détenus par le bar :
 - raison sociale exacte, forme juridique, capital social le cas échéant
 - **numéro SIRET** et immatriculation RCS
 - numéro de TVA intracommunautaire, si l'établissement y est assujetti
 - **catégorie et numéro de la licence de débit de boissons**
 - nom et prénom du **directeur de la publication**
 - une adresse de contact (courriel), et un téléphone ou la mention « non communiqué »
-- nom, adresse et téléphone de **l'hébergeur** retenu
 - le **médiateur de la consommation** auquel l'établissement adhère (obligatoire pour
   un commerce recevant des consommateurs, art. L612-1 du code de la consommation)
 
-### 2. Le nom de domaine
-Le site utilise le domaine provisoire `lebardesarchers.fr`. Il faut décider du vrai
-domaine, puis le remplacer partout (procédure dans `README.md`, une commande).
-Tant que ce n'est pas fait, les balises canoniques et le sitemap pointent dans le vide.
+L'**hébergeur** n'est plus à compléter : le site étant sur GitHub Pages, les trois
+lignes ont été remplies avec les coordonnées publiques de GitHub, Inc.
 
-### 3. Validation des horaires
-Le tableau reprend ce qui a été relevé au bar en période estivale :
+> Le site fonctionne et est indexable en l'état ; ce point bloque le fait d'en faire
+> la promotion, pas son existence.
 
+---
+
+## Réglé depuis la dernière version
+
+### 2. Nom de domaine — *réglé, à revoir si le bar en achète un*
+Le site déclarait partout `lebardesarchers.fr`, qui n'existe pas : canonical, sitemap
+et Open Graph pointaient dans le vide. Ils pointent maintenant vers l'adresse à laquelle
+le site répond réellement, <https://mxcrts.github.io/BarArcher/>. Le référencement
+fonctionne donc dès maintenant.
+Si le bar prend un vrai domaine, c'est une commande à passer (`README.md`).
+
+### 3. Horaires — *heure de fermeture confirmée*
 | | |
 |---|---|
 | Lundi, mardi | fermé |
@@ -34,33 +78,49 @@ Le tableau reprend ce qui a été relevé au bar en période estivale :
 | Vendredi, samedi | 16h – minuit |
 | Dimanche | 9h – 14h |
 
-À confirmer, et surtout : **est-ce que « minuit » vendredi et samedi veut dire minuit
-pile, ou plutôt 1h / 2h du matin ?** Le badge « Ouvert / Fermé » en dépend directement.
-Le site les présente comme des horaires d'été indicatifs, en renvoyant vers Instagram
-pour le programme de la semaine — c'est volontaire, mais il faut que le bar valide
-cette formulation.
+**Confirmé : vendredi et samedi, c'est minuit pile.** Le badge bascule donc sur « Fermé »
+à 00h00 et le JSON-LD annonce `23:59` (convention Google pour les fermetures tardives).
+`data/horaires.json` est juste, rien à changer.
+Reste à valider le reste du tableau, et surtout : **ces horaires sont annoncés comme
+« horaires d'été »** — il faudra dire jusqu'à quand ils valent (point 11 du message).
+
+### 4. Coordonnées GPS — *fait et vérifié*
+`43.2578 / 1.2010` remplace la position approximative du brief dans le JSON-LD. Contrôle
+indépendant : le relevé OpenStreetMap de la place de la Halle donne `43.25770 / 1.20132`,
+soit ~20 m d'écart. L'épingle tombe au bon endroit.
+
+### 5. Le plan dessiné à la main — *géométrie vérifiée*
+Elle ne l'était pas, elle l'est : positions relatives contrôlées contre OpenStreetMap
+(le bar à l'ouest de la place, la halle au centre, la cathédrale ~170 m à l'est, l'Arize
+au sud et à l'ouest). Le dessin est juste, détail dans `DECISIONS.md`.
+**Une seule question reste :** souhaitez-vous des noms de rues sur le plan ? Le seul
+vérifié en plus de « place de la Halle » est la **place Monseigneur de Lastic**, devant
+la cathédrale. Il n'a pas été ajouté : le dessin est volontairement nu.
+
+### 9. Les concerts — *les dates s'affichent, et s'effacent seules*
+Deux dates de votre affiche du mois sont maintenant sur le site : **vendredi 21 août
+(Beer Pong Night)** et **samedi 22 août (Café Color, soul / funk)**.
+
+Aucun risque de date périmée : chaque ligne porte sa date de fin, disparaît d'elle-même
+le lendemain, et le bloc entier s'efface quand il n'en reste plus aucune. Sans
+JavaScript, il ne s'affiche pas du tout. **Il n'y a donc rien à surveiller.**
+Ajouter une date = copier une ligne (`README.md`).
+
+Les deux affiches (`affiche-du-mois.png`, `affiche-evenement.png`) restent **non
+publiées** : elles pèsent ~700 Ko chacune, cinq fois le poids de la page entière. Il
+faut les convertir en WebP avant de les afficher — procédure dans `README.md`.
+
+### 11. Le crédit du site — *fait*
+Pied de page et mentions légales : « Maxime Cortes », lien vers le portfolio.
 
 ---
 
 ## À confirmer ensuite
 
-### 4. Coordonnées GPS
-`43.2647, 1.1789` est une position approximative, reprise du brief. Elle est publiée
-dans le JSON-LD lu par Google. À affiner (un relevé sur place ou la fiche Google
-Business suffit) pour que l'épingle tombe sur la bonne façade.
-
-### 5. Le plan dessiné à la main
-Le plan de la section « Venir » situe le bar sur la place, la halle au centre et la
-cathédrale comme repère. **Sa géométrie n'a pas été vérifiée** et il est annoncé comme
-indicatif. Deux questions :
-- la position relative bar / halle / cathédrale est-elle à peu près juste ?
-- souhaitez-vous y faire figurer des noms de rues ? Je n'en ai ajouté aucun faute de
-  les connaître avec certitude (voir `DECISIONS.md`).
-
 ### 6. Un téléphone ?
-Le site n'affiche aucun numéro : il n'y en a pas de public. Instagram est présenté comme
-le canal de contact. Si un numéro existe, il mérite d'être ajouté — c'est ce que les gens
-cherchent en premier après les horaires.
+Le site n'affiche aucun numéro : il n'y en a pas de public, et il n'en figure sur aucune
+des deux affiches. Instagram est présenté comme le canal de contact. Si un numéro existe,
+il mérite d'être ajouté — c'est ce que les gens cherchent en premier après les horaires.
 
 ### 7. La fourchette de prix
 Le champ `priceRange` du JSON-LD est volontairement absent : je n'invente pas de prix.
@@ -77,28 +137,16 @@ minutes, la mise en page suit toute seule (procédure dans `README.md`).
 En attendant, le site affiche « les prix sont sur l'ardoise, au bar » — c'est vrai,
 mais ça fait rebrousser chemin à une partie des visiteurs.
 
-Deux questions au passage : y a-t-il des bières locales à mettre en avant ?
-Et l'affiche du mois d'août mentionne **« restauration sur place »** — c'est un
-argument fort, et il n'apparaît nulle part sur le site faute de savoir ce que ça
-recouvre (planches, tapas, plats ?).
-
-### 9. Les concerts
-Volontairement, aucune date n'est codée en dur : elles seraient périmées en quelques
-semaines. Un emplacement commenté est prêt dans `index.html`, avec la marche à suivre
-dans `README.md`. Deux affiches réelles ont été conservées dans le dépôt
-(`assets/photos/affiche-du-mois.png` et `affiche-evenement.png`) mais **ne sont pas
-affichées** : elles portent des dates. Si vous voulez publier l'affiche du mois, il
-suffit de remplacer le fichier et de décommenter le bloc.
+Deux questions au passage : y a-t-il des **bières locales** à mettre en avant ?
+Et **« restauration sur place »**, relevé sur l'affiche du mois, est désormais annoncé
+en bas de la carte — mais en trois mots, faute de savoir ce que ça recouvre. Dire s'il
+s'agit de planches, de tapas ou de plats permettrait d'en faire un véritable argument.
 
 ### 10. Les avis Google
 Quatre avis sont cités avec prénom et note. Ils sont publics, mais un mot au bar (et
 idéalement aux auteurs) ne coûte rien. La note globale affichée (4,7 sur 7 avis) devra
 être mise à jour quand elle bougera — elle est écrite à deux endroits d'`index.html`,
 dans le bandeau et dans le JSON-LD.
-
-### 11. Le crédit du site
-Le pied de page indique « Site réalisé par Maxime Crtsz » avec un lien vide (`href="#"`).
-À remplacer par une vraie URL, ou à retirer.
 
 ### 12. Les photos
 Deux photos seulement, prises au téléphone. Elles font le travail, mais la galerie
@@ -108,9 +156,14 @@ la salle en service, la terrasse occupée, un plan large de la place.
 
 ---
 
-## Point d'attention technique
+## Points d'attention technique
 
 **Aucun outil de mesure d'audience n'est installé** — c'est ce qui permet au site de
 n'avoir aucun cookie et donc aucun bandeau de consentement. Si vous voulez un jour
 savoir combien de personnes consultent le site, dites-le : il existe des solutions
 sans cookie et conformes RGPD, mais c'est un choix à faire en connaissance de cause.
+
+**Le JavaScript dépasse de 2 % le plafond fixé** (10,2 Ko au lieu de 10), à cause des
+dates auto-expirantes. C'est assumé et documenté dans `DECISIONS.md` ; si le plafond doit
+être tenu à la lettre, il suffit de retirer le bloc « Prochaines dates » — on retombe à
+9,5 Ko et le site revient à son état précédent, sans dates.
